@@ -12,7 +12,7 @@ const TIMEZONE = 'Asia/Bangkok';
 const PROXY_BASE = (window.PROXY_BASE || '').replace(/\/$/, '');
 
 // กำหนดลำดับหมวดที่ต้องการ (ชื่อให้ตรงกับใน channels.json)
-const CATEGORY_ORDER = ['กีฬา', 'หนัง', 'การศึกษา', 'IPTV'];
+const CATEGORY_ORDER = ['IPTV', 'กีฬา', 'การศึกษา', 'หนัง'];
 
 const tabsEl   = document.getElementById('tabs');
 const listEl   = document.getElementById('channel-list');
