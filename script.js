@@ -4,8 +4,7 @@
    - คลิก "ช่อง" หรือเปลี่ยน "หมวด" → เลื่อนไปยังตัวเล่นวิดีโอเสมอ
    - จัดเรียงหมวดด้วย CATEGORY_ORDER ที่กำหนดเอง
    - player-status (ขวาบน) สำหรับ error/ข้อความยาว
-   - เพิ่ม toast ซ้ายบนเมื่อกดรีเฟรช + overlay สปินเนอร์ตอนโหลดช่อง (คลีน)
-   - ไม่ใช้ Cloudflare; ถ้าต้องการพร็อกซีให้ตั้ง window.PROXY_BASE เป็นโดเมน Vercel
+   - Toast ซ้ายบนเมื่อกดรีเฟรช + Overlay ตอนโหลดช่อง (พื้นหลังดำ)
 ================================================================================= */
 
 const CHANNELS_URL = 'channels.json';
@@ -32,14 +31,14 @@ let lastRefreshTs = 0;
 
 let statusTimer = null;
 
-// ===== HUD องค์ประกอบใหม่ (ไม่ต้องแก้ HTML) =====
+// ===== HUD องค์ประกอบใหม่ (ทำพื้นหลัง overlay เป็น "ดำทึบ") =====
 let toastLeftEl = null;     // ข้อความคลีนๆ มุมซ้ายบน (เช่น ตอนกดรีเฟรช)
 let loadOverlayEl = null;   // โอเวอร์เลย์สปินเนอร์กึ่งกลางตอนโหลดช่อง
 function ensureHUD(){
   const wrap = document.querySelector('.player-wrap');
   if (!wrap) return;
 
-  // สร้าง toast ซ้ายบน
+  // Toast ซ้ายบน
   if (!toastLeftEl){
     toastLeftEl = document.createElement('div');
     toastLeftEl.id = 'player-toast-left';
@@ -48,32 +47,36 @@ function ensureHUD(){
       padding:'6px 10px', borderRadius:'8px', pointerEvents:'none',
       color:'#fff', background:'#000c', border:'1px solid #ffffff22',
       fontSize:'14px', lineHeight:'1.35', backdropFilter:'saturate(120%) blur(2px)',
-      boxShadow:'0 6px 18px #0006', maxWidth:'min(92%, 420px)', opacity:'0', transform:'translateY(-6px)', transition:'opacity .18s ease, transform .18s ease'
+      boxShadow:'0 6px 18px #0006', maxWidth:'min(92%, 420px)',
+      opacity:'0', transform:'translateY(-6px)', transition:'opacity .18s ease, transform .18s ease'
     });
     toastLeftEl.hidden = true;
     wrap.appendChild(toastLeftEl);
   }
 
-  // สร้าง overlay โหลดช่อง (สปินเนอร์ + ข้อความ)
+  // Overlay โหลดช่อง (พื้นหลัง "ดำ", ปิดทับทั้งพื้นที่วิดีโอ)
   if (!loadOverlayEl){
     loadOverlayEl = document.createElement('div');
     loadOverlayEl.id = 'player-loading-overlay';
     loadOverlayEl.innerHTML = `
       <div style="
         display:flex;flex-direction:column;align-items:center;gap:10px;
-        padding:14px 16px;border-radius:12px;background:#000b;border:1px solid #ffffff22;
+        padding:14px 16px;border-radius:12px;background:#111418e6;border:1px solid #ffffff22;
         backdrop-filter:saturate(120%) blur(2px);">
-        <div style="width:36px;height:36px;border:3px solid #999;border-top-color:transparent;border-radius:50%;animation:spin .9s linear infinite"></div>
+        <div style="width:36px;height:36px;border:3px solid #9aa0a6;border-top-color:transparent;border-radius:50%;animation:spin .9s linear infinite"></div>
         <div id="plo-text" style="color:#e9eef3;font-size:14px;">กำลังโหลด…</div>
       </div>`;
     Object.assign(loadOverlayEl.style, {
-      position:'absolute', inset:'0', display:'flex', alignItems:'center', justifyContent:'center',
-      zIndex:'2', background:'transparent', opacity:'0', pointerEvents:'none', transition:'opacity .18s ease'
+      position:'absolute', inset:'0',
+      display:'flex', alignItems:'center', justifyContent:'center',
+      zIndex:'2',
+      background:'#000',       // ⬅⬅⬅ พื้นหลังดำทึบ
+      opacity:'0', pointerEvents:'none', transition:'opacity .18s ease'
     });
     loadOverlayEl.hidden = true;
     wrap.appendChild(loadOverlayEl);
 
-    // keyframes (แบบ inline)
+    // keyframes (inline)
     const kf = document.createElement('style');
     kf.textContent = '@keyframes spin{to{transform:rotate(360deg)}}';
     document.head.appendChild(kf);
@@ -277,6 +280,9 @@ function ensureHls(){
 
 async function playUrl(url){
   const finalUrl = wrapIfProxy(url);
+  // ให้พื้นหลังก่อนเล่นเป็นดำเสมอ
+  if (videoEl) videoEl.style.background = '#000';
+
   if (videoEl.canPlayType('application/vnd.apple.mpegurl')){ // Safari
     videoEl.src = finalUrl;
     try{ await videoEl.play(); }catch{}
@@ -303,7 +309,7 @@ async function playByIndex(idx, jumpToPlayer){
   });
 
   updateNowPlaying(c);
-  showLoadingOverlay(`กำลังโหลด: ${c.name} ...`);    // ✅ โอเวอร์เลย์คลีนตอนโหลด
+  showLoadingOverlay(`กำลังโหลด: ${c.name} ...`);    // พื้นหลังดำตอนโหลด
   showStatus('', false);                               // ซ่อนกล่องขวาบนถ้ามี
 
   const candidates = [c.url, ...c.backups.map(b => b.url || b.src).filter(Boolean)];
@@ -323,7 +329,7 @@ async function playByIndex(idx, jumpToPlayer){
 
 /* ---------- Refresh / Init ---------- */
 async function doRefresh(){
-  showToastLeft('กำลังรีเฟรช...', 800);   // ✅ ข้อความซ้ายบนตอนกดรีเฟรช
+  showToastLeft('กำลังรีเฟรช...', 800);
   showStatus('รีเฟรช/ล้างแคช...', false, 0);
   const activeTab = tabsEl.querySelector('.tab.active')?.dataset?.cat || categories[0] || null;
   await fetchChannels();
