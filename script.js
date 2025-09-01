@@ -3,7 +3,8 @@
    - ไม่มีหมวด "ทั้งหมด" (ใช้เฉพาะหมวดจริง)
    - คลิก "ช่อง" หรือเปลี่ยน "หมวด" → เลื่อนไปยังตัวเล่นวิดีโอเสมอ
    - จัดเรียงหมวดด้วย CATEGORY_ORDER ที่กำหนดเอง
-   - player-status โชว์/ซ่อนอัตโนมัติ (ทั่วไป 1.8s, error 4s; ระหว่างโหลดค้างไว้)
+   - player-status (ขวาบน) สำหรับ error/ข้อความยาว
+   - เพิ่ม toast ซ้ายบนเมื่อกดรีเฟรช + overlay สปินเนอร์ตอนโหลดช่อง (คลีน)
    - ไม่ใช้ Cloudflare; ถ้าต้องการพร็อกซีให้ตั้ง window.PROXY_BASE เป็นโดเมน Vercel
 ================================================================================= */
 
@@ -11,13 +12,13 @@ const CHANNELS_URL = 'channels.json';
 const TIMEZONE = 'Asia/Bangkok';
 const PROXY_BASE = (window.PROXY_BASE || '').replace(/\/$/, '');
 
-// กำหนดลำดับหมวดที่ต้องการ (ชื่อให้ตรงกับใน channels.json)
-const CATEGORY_ORDER = ['IPTV', 'กีฬา', 'การศึกษา', 'หนัง'];
+// ลำดับหมวดที่ต้องการ (ชื่อให้ตรงกับใน channels.json)
+const CATEGORY_ORDER = ['กีฬา', 'หนัง', 'การศึกษา', 'IPTV'];
 
 const tabsEl   = document.getElementById('tabs');
 const listEl   = document.getElementById('channel-list');
 const videoEl  = document.getElementById('player');
-const statusEl = document.getElementById('player-status');
+const statusEl = document.getElementById('player-status');    // ขวาบน
 const nowEl    = document.getElementById('now-playing');
 const clockEl  = document.getElementById('clock');
 const refreshBtn = document.getElementById('refresh-btn');
@@ -28,7 +29,85 @@ let categories  = [];     // ไม่มี "ทั้งหมด"
 let currentIdx  = -1;
 let hls = null;
 let lastRefreshTs = 0;
+
 let statusTimer = null;
+
+// ===== HUD องค์ประกอบใหม่ (ไม่ต้องแก้ HTML) =====
+let toastLeftEl = null;     // ข้อความคลีนๆ มุมซ้ายบน (เช่น ตอนกดรีเฟรช)
+let loadOverlayEl = null;   // โอเวอร์เลย์สปินเนอร์กึ่งกลางตอนโหลดช่อง
+function ensureHUD(){
+  const wrap = document.querySelector('.player-wrap');
+  if (!wrap) return;
+
+  // สร้าง toast ซ้ายบน
+  if (!toastLeftEl){
+    toastLeftEl = document.createElement('div');
+    toastLeftEl.id = 'player-toast-left';
+    Object.assign(toastLeftEl.style, {
+      position:'absolute', left:'12px', top:'12px', zIndex:'3',
+      padding:'6px 10px', borderRadius:'8px', pointerEvents:'none',
+      color:'#fff', background:'#000c', border:'1px solid #ffffff22',
+      fontSize:'14px', lineHeight:'1.35', backdropFilter:'saturate(120%) blur(2px)',
+      boxShadow:'0 6px 18px #0006', maxWidth:'min(92%, 420px)', opacity:'0', transform:'translateY(-6px)', transition:'opacity .18s ease, transform .18s ease'
+    });
+    toastLeftEl.hidden = true;
+    wrap.appendChild(toastLeftEl);
+  }
+
+  // สร้าง overlay โหลดช่อง (สปินเนอร์ + ข้อความ)
+  if (!loadOverlayEl){
+    loadOverlayEl = document.createElement('div');
+    loadOverlayEl.id = 'player-loading-overlay';
+    loadOverlayEl.innerHTML = `
+      <div style="
+        display:flex;flex-direction:column;align-items:center;gap:10px;
+        padding:14px 16px;border-radius:12px;background:#000b;border:1px solid #ffffff22;
+        backdrop-filter:saturate(120%) blur(2px);">
+        <div style="width:36px;height:36px;border:3px solid #999;border-top-color:transparent;border-radius:50%;animation:spin .9s linear infinite"></div>
+        <div id="plo-text" style="color:#e9eef3;font-size:14px;">กำลังโหลด…</div>
+      </div>`;
+    Object.assign(loadOverlayEl.style, {
+      position:'absolute', inset:'0', display:'flex', alignItems:'center', justifyContent:'center',
+      zIndex:'2', background:'transparent', opacity:'0', pointerEvents:'none', transition:'opacity .18s ease'
+    });
+    loadOverlayEl.hidden = true;
+    wrap.appendChild(loadOverlayEl);
+
+    // keyframes (แบบ inline)
+    const kf = document.createElement('style');
+    kf.textContent = '@keyframes spin{to{transform:rotate(360deg)}}';
+    document.head.appendChild(kf);
+  }
+}
+function showToastLeft(msg, durationMs=1200){
+  ensureHUD();
+  if (!toastLeftEl) return;
+  toastLeftEl.textContent = msg || '';
+  toastLeftEl.hidden = !msg;
+  if (!msg) return;
+  requestAnimationFrame(()=>{
+    toastLeftEl.style.opacity = '1';
+    toastLeftEl.style.transform = 'translateY(0)';
+    setTimeout(()=>{
+      toastLeftEl.style.opacity = '0';
+      toastLeftEl.style.transform = 'translateY(-6px)';
+      setTimeout(()=>{ toastLeftEl.hidden = true; }, 180);
+    }, durationMs);
+  });
+}
+function showLoadingOverlay(text='กำลังโหลด…'){
+  ensureHUD();
+  if (!loadOverlayEl) return;
+  const t = loadOverlayEl.querySelector('#plo-text');
+  if (t) t.textContent = text;
+  loadOverlayEl.hidden = false;
+  requestAnimationFrame(()=> loadOverlayEl.style.opacity = '1');
+}
+function hideLoadingOverlay(){
+  if (!loadOverlayEl) return;
+  loadOverlayEl.style.opacity = '0';
+  setTimeout(()=>{ loadOverlayEl.hidden = true; }, 180);
+}
 
 /* ---------- Utils ---------- */
 const sleep   = (ms)=> new Promise(r=>setTimeout(r, ms));
@@ -56,16 +135,9 @@ function showStatus(msg, isError=false, durationMs){
     statusTimer = setTimeout(() => { statusEl.hidden = true; }, ms);
   }
 }
-
-function bust(url){
-  const u = new URL(url, location.href);
-  u.searchParams.set('_', Date.now().toString(36));
-  return u.toString();
-}
-
+function bust(url){ const u = new URL(url, location.href); u.searchParams.set('_', Date.now().toString(36)); return u.toString(); }
 function wrapIfProxy(u){
   if (!PROXY_BASE) return u;
-  // โหมด Vercel: /api/p?u=<encoded-upstream>
   const v = new URL(PROXY_BASE);
   v.pathname = v.pathname.replace(/\/+$/,'') + '/api/p';
   v.searchParams.set('u', u);
@@ -141,6 +213,7 @@ function renderTabs(){
       b.classList.add('active');
       renderList(cat);
       setTimeout(scrollToPlayer, 0); // เลื่อนไปหาวิดีโอหลังเปลี่ยนหมวด
+      showToastLeft(`หมวด: ${cat}`, 900);
     });
     tabsEl.appendChild(b);
   });
@@ -230,16 +303,19 @@ async function playByIndex(idx, jumpToPlayer){
   });
 
   updateNowPlaying(c);
-  showStatus(`กำลังโหลด: ${c.name} ...`, false, 0);  // ค้างไว้จนเล่นได้/ล้มเหลว
+  showLoadingOverlay(`กำลังโหลด: ${c.name} ...`);    // ✅ โอเวอร์เลย์คลีนตอนโหลด
+  showStatus('', false);                               // ซ่อนกล่องขวาบนถ้ามี
 
   const candidates = [c.url, ...c.backups.map(b => b.url || b.src).filter(Boolean)];
   let ok = false;
   for (const u of candidates){
     try{
       ok = await playUrl(u);
-      if (ok){ showStatus(''); break; }
+      if (ok){ break; }
     }catch{}
   }
+
+  hideLoadingOverlay();
   if (!ok) showStatus('ไม่สามารถเล่นช่องนี้ได้', true, 4000);
 
   if (jumpToPlayer) setTimeout(scrollToPlayer, 0);
@@ -247,6 +323,7 @@ async function playByIndex(idx, jumpToPlayer){
 
 /* ---------- Refresh / Init ---------- */
 async function doRefresh(){
+  showToastLeft('กำลังรีเฟรช...', 800);   // ✅ ข้อความซ้ายบนตอนกดรีเฟรช
   showStatus('รีเฟรช/ล้างแคช...', false, 0);
   const activeTab = tabsEl.querySelector('.tab.active')?.dataset?.cat || categories[0] || null;
   await fetchChannels();
@@ -256,15 +333,18 @@ async function doRefresh(){
   tabsEl.querySelectorAll('.tab').forEach(x => { if (x.dataset.cat === keep) x.classList.add('active'); });
   renderList(keep);
   showStatus('');
+  showToastLeft('อัปเดตรายการแล้ว', 900);
 }
 
 refreshBtn?.addEventListener('click', async () => {
   if (Date.now() - lastRefreshTs < 700) return;
   lastRefreshTs = Date.now();
-  try{ await doRefresh(); }catch(e){ showStatus('รีเฟรชไม่สำเร็จ', true, 4000); }
+  try{ await doRefresh(); }
+  catch(e){ showStatus('รีเฟรชไม่สำเร็จ', true, 4000); showToastLeft('รีเฟรชไม่สำเร็จ', 1200); }
 });
 
 async function init(){
+  ensureHUD();
   showStatus('กำลังโหลดรายการช่อง...', false, 0);
   try{
     await fetchChannels();
