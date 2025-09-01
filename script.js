@@ -1,7 +1,7 @@
 /* ========================= script.js (GitHub Pages mode) =========================
    - อ่าน channels.json
-   - จัด player ให้อยู่กึ่งกลาง (อาศัย CSS ใหม่)
-   - ตัดหมวด "ทั้งหมด" ออกไปจากระบบ (ไม่มีการสร้าง/อ้างอิง)
+   - ไม่มีหมวด "ทั้งหมด" แล้ว (ใช้หมวดจริงเท่านั้น)
+   - กดช่องแล้ว "เด้งไปยังตัวเล่นวิดีโอเสมอ"
 ================================================================================= */
 
 const CHANNELS_URL = 'channels.json';
@@ -18,12 +18,12 @@ const refreshBtn = document.getElementById('refresh-btn');
 
 let channelsRaw = null;
 let channels    = [];
-let categories  = [];     // ไม่มี "ทั้งหมด" แล้ว
+let categories  = [];     // ไม่มี "ทั้งหมด"
 let currentIdx  = -1;
 let hls = null;
 let lastRefreshTs = 0;
 
-// ---------- Utils ----------
+/* ---------- Utils ---------- */
 const sleep   = (ms)=> new Promise(r=>setTimeout(r, ms));
 const fmtTime = (d)=> d.toLocaleString('th-TH',{hour:'2-digit',minute:'2-digit',second:'2-digit',hour12:false,timeZone:TIMEZONE});
 function tickClock(){ if (clockEl) clockEl.textContent = fmtTime(new Date()); }
@@ -35,7 +35,13 @@ function showStatus(msg, isError=false){
   statusEl.hidden = !msg;
   statusEl.classList.toggle('error', !!isError);
 }
-function bust(url){ const u = new URL(url, location.href); u.searchParams.set('_', Date.now().toString(36)); return u.toString(); }
+
+function bust(url){
+  const u = new URL(url, location.href);
+  u.searchParams.set('_', Date.now().toString(36));
+  return u.toString();
+}
+
 function wrapIfProxy(u){
   if (!PROXY_BASE) return u;
   const v = new URL(PROXY_BASE);
@@ -43,16 +49,35 @@ function wrapIfProxy(u){
   v.searchParams.set('u', u);
   return v.toString();
 }
+
+// เลื่อนหน้าไปหากล่องวิดีโอ (รองรับ header แบบ sticky)
+function scrollToPlayer(){
+  const playerWrap = document.querySelector('.player-wrap');
+  if (!playerWrap) return;
+  const header = document.querySelector('.h-wrap');
+  const headerH = header ? header.getBoundingClientRect().height : 0;
+  const y = playerWrap.getBoundingClientRect().top + window.scrollY - (headerH + 8);
+  window.scrollTo({ top: Math.max(0, y), behavior: 'smooth' });
+}
+
+/* ---------- Normalizers ---------- */
 function extractBackups(o){
   const cand = o.backups || o.backup || o.alts || o.sources || [];
   return Array.isArray(cand) ? cand.map(s => (typeof s==='string'?{url:s}:s)).filter(Boolean) : [];
 }
 function normalizeOne(id, o){
   const url = o.src || o.url || '';
-  return { id,
-    name:o.name || id, logo:o.logo||'', category:o.category||'อื่นๆ',
-    url, type:o.type || (String(url).endsWith('.mpd')?'dash':'hls'),
-    drm:o.drm||null, backups:extractBackups(o), badge:o.badge||'' };
+  return {
+    id,
+    name:o.name || id,
+    logo:o.logo || '',
+    category:o.category || 'อื่นๆ',
+    url,
+    type:o.type || (String(url).endsWith('.mpd') ? 'dash' : 'hls'),
+    drm:o.drm || null,
+    backups:extractBackups(o),
+    badge:o.badge || ''
+  };
 }
 function normalizeAll(raw){
   const out = [];
@@ -64,6 +89,8 @@ function buildCategories(){
   const set = new Set(channels.map(c => c.category || 'อื่นๆ'));
   categories = Array.from(set).sort((a,b)=>a.localeCompare(b,'th')); // ไม่มี 'ทั้งหมด'
 }
+
+/* ---------- Render ---------- */
 function tileHTML(c){
   const badge = c.badge ? `<span class="badge">${c.badge}</span>` : '';
   const logo  = c.logo ? `<img loading="lazy" src="${c.logo}" alt="">` : '<div class="no-logo"></div>';
@@ -72,6 +99,7 @@ function tileHTML(c){
     <div class="channel-name">${c.name}</div>
   </div>`;
 }
+
 function renderTabs(){
   tabsEl.innerHTML = '';
   categories.forEach((cat, i) => {
@@ -84,10 +112,13 @@ function renderTabs(){
       tabsEl.querySelectorAll('.tab').forEach(x=>x.classList.remove('active'));
       b.classList.add('active');
       renderList(cat);
+      // เมื่อเปลี่ยนหมวด ให้เลื่อนขึ้นเล็กน้อยให้เห็น VDO ชัด (เผื่ออยู่ล่าง)
+      setTimeout(scrollToPlayer, 0);
     });
     tabsEl.appendChild(b);
   });
 }
+
 function renderList(cat){
   const useCat = cat || categories[0] || null;
   const filtered = useCat ? channels.filter(c => c.category === useCat) : channels;
@@ -96,15 +127,18 @@ function renderList(cat){
     el.addEventListener('click', () => {
       const id = el.dataset.id;
       const idx = channels.findIndex(x => x.id === id);
+      // true = มาจากการคลิก ให้เลื่อนไปหาวิดีโอเสมอ
       playByIndex(idx, true);
     });
   });
-  // auto play ช่องแรกของหมวดแรก
+  // auto play ช่องแรกของหมวดแรก (ไม่เลื่อนหน้าจอ)
   if (filtered.length && currentIdx < 0) {
     const firstIdx = channels.findIndex(x => x.id === filtered[0].id);
     playByIndex(firstIdx, false);
   }
 }
+
+/* ---------- Data ---------- */
 async function fetchChannels(){
   if (!listEl.dataset.loading){
     listEl.dataset.loading='1';
@@ -118,15 +152,16 @@ async function fetchChannels(){
   const res = await fetch(bust(CHANNELS_URL), { cache:'no-store' });
   if (!res.ok) throw new Error('โหลด channels.json ไม่สำเร็จ');
   channelsRaw = await res.json();
-  channels    = normalizeAll(channelsRaw).filter(c => c.type !== 'dash'); // เน้น HLS
+  channels    = normalizeAll(channelsRaw).filter(c => c.type !== 'dash'); // GH mode: เน้น HLS
   listEl.removeAttribute('data-loading');
 }
+
+/* ---------- Player ---------- */
 function updateNowPlaying(c){
   nowEl.textContent = `กำลังเล่น: ${c.name} (${c.category})`;
   document.title = `▶ ${c.name} - Flow TV`;
 }
 
-// ---------- Player ----------
 function ensureHls(){
   if (hls){ try{ hls.destroy(); }catch{} hls = null; }
   if (window.Hls && Hls.isSupported()){
@@ -135,12 +170,15 @@ function ensureHls(){
       fragLoadingMaxRetry:2, manifestLoadingMaxRetry:2, lowLatencyMode:false
     });
     hls.attachMedia(videoEl);
-    hls.on(Hls.Events.ERROR, (ev, data) => { if (data?.fatal) showStatus(`เล่นไม่สำเร็จ (${data.type})`, true); });
+    hls.on(Hls.Events.ERROR, (ev, data) => {
+      if (data?.fatal) showStatus(`เล่นไม่สำเร็จ (${data.type})`, true);
+    });
   }
 }
+
 async function playUrl(url){
   const finalUrl = wrapIfProxy(url);
-  if (videoEl.canPlayType('application/vnd.apple.mpegurl')){
+  if (videoEl.canPlayType('application/vnd.apple.mpegurl')){ // Safari
     videoEl.src = finalUrl;
     try{ await videoEl.play(); }catch{}
     return true;
@@ -151,7 +189,12 @@ async function playUrl(url){
   try{ await videoEl.play(); }catch{}
   return true;
 }
-async function playByIndex(idx, scrollIntoView){
+
+/**
+ * @param {number} idx
+ * @param {boolean} jumpToPlayer - ถ้า true จะเลื่อนไปหาวิดีโอเสมอ (ใช้ตอนคลิกช่อง)
+ */
+async function playByIndex(idx, jumpToPlayer){
   if (idx < 0 || idx >= channels.length) return;
   const c = channels[idx];
   currentIdx = idx;
@@ -172,12 +215,15 @@ async function playByIndex(idx, scrollIntoView){
     }catch{}
   }
   if (!ok) showStatus('ไม่สามารถเล่นช่องนี้ได้', true);
-  if (scrollIntoView){
-    document.querySelector(`.channel-tile[data-id="${c.id}"]`)?.scrollIntoView({behavior:'smooth', block:'center'});
+
+  // เด้งหน้าจอไปหาวิดีโอเสมอถ้ามาจากการคลิก
+  if (jumpToPlayer){
+    // ใช้ setTimeout เพื่อให้เบราว์เซอร์วาด DOM/Video ก่อน แล้วค่อยเลื่อน
+    setTimeout(scrollToPlayer, 0);
   }
 }
 
-// ---------- Refresh / Init ----------
+/* ---------- Refresh / Init ---------- */
 async function doRefresh(){
   showStatus('รีเฟรช/ล้างแคช...');
   const activeTab = tabsEl.querySelector('.tab.active')?.dataset?.cat || categories[0] || null;
@@ -189,6 +235,7 @@ async function doRefresh(){
   renderList(keep);
   showStatus('');
 }
+
 refreshBtn?.addEventListener('click', async () => {
   if (Date.now() - lastRefreshTs < 700) return;
   lastRefreshTs = Date.now();
@@ -201,12 +248,14 @@ async function init(){
     await fetchChannels();
     buildCategories();
     renderTabs();
-    renderList(categories[0] || null);
+    renderList(categories[0] || null);   // ครั้งแรกไม่เลื่อน
     showStatus('');
   }catch(e){
     console.error(e);
     showStatus('โหลดรายการช่องไม่สำเร็จ', true);
   }
+
+  // ยกเลิก mute อัตโนมัติหลังมี gesture
   ['click','touchend','keydown'].forEach(evt=>{
     window.addEventListener(evt, ()=> { if (videoEl.muted) videoEl.muted = false; }, { once:true, passive:true });
   });
