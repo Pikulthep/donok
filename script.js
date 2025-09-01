@@ -1,14 +1,18 @@
 /* ========================= script.js (GitHub Pages mode) =========================
    - อ่าน channels.json (รองรับทั้ง object keyed และ array)
-   - ไม่มีหมวด "ทั้งหมด" แล้ว (ใช้หมวดจริงเท่านั้น)
+   - ไม่มีหมวด "ทั้งหมด" (ใช้เฉพาะหมวดจริง)
    - คลิก "ช่อง" หรือเปลี่ยน "หมวด" → เลื่อนไปยังตัวเล่นวิดีโอเสมอ
-   - player-status โชว์/ซ่อนอัตโนมัติ (ข้อความทั่วไป 1.8s, error 4s; ระหว่างโหลดค้างไว้)
+   - จัดเรียงหมวดด้วย CATEGORY_ORDER ที่กำหนดเอง
+   - player-status โชว์/ซ่อนอัตโนมัติ (ทั่วไป 1.8s, error 4s; ระหว่างโหลดค้างไว้)
    - ไม่ใช้ Cloudflare; ถ้าต้องการพร็อกซีให้ตั้ง window.PROXY_BASE เป็นโดเมน Vercel
 ================================================================================= */
 
 const CHANNELS_URL = 'channels.json';
 const TIMEZONE = 'Asia/Bangkok';
 const PROXY_BASE = (window.PROXY_BASE || '').replace(/\/$/, '');
+
+// กำหนดลำดับหมวดที่ต้องการ (ชื่อให้ตรงกับใน channels.json)
+const CATEGORY_ORDER = ['กีฬา', 'หนัง', 'การศึกษา', 'IPTV'];
 
 const tabsEl   = document.getElementById('tabs');
 const listEl   = document.getElementById('channel-list');
@@ -24,7 +28,6 @@ let categories  = [];     // ไม่มี "ทั้งหมด"
 let currentIdx  = -1;
 let hls = null;
 let lastRefreshTs = 0;
-
 let statusTimer = null;
 
 /* ---------- Utils ---------- */
@@ -47,7 +50,7 @@ function showStatus(msg, isError=false, durationMs){
   statusEl.hidden = false;
   statusEl.classList.toggle('error', !!isError);
 
-  // default: ข้อความทั่วไป 1800ms, error 4000ms (ถ้าส่ง durationMs=0 ⇒ ค้างไว้จนสั่งปิดเอง)
+  // default: ข้อความทั่วไป 1800ms, error 4000ms (durationMs=0 ⇒ ค้างไว้)
   const ms = typeof durationMs === 'number' ? durationMs : (isError ? 4000 : 1800);
   if (ms > 0){
     statusTimer = setTimeout(() => { statusEl.hidden = true; }, ms);
@@ -104,9 +107,15 @@ function normalizeAll(raw){
   else if (raw && typeof raw==='object') Object.keys(raw).forEach(k=> out.push(normalizeOne(k, raw[k])));
   return out;
 }
+
+/* ---------- Categories (กำหนดลำดับเอง) ---------- */
 function buildCategories(){
   const set = new Set(channels.map(c => c.category || 'อื่นๆ'));
-  categories = Array.from(set).sort((a,b)=>a.localeCompare(b,'th')); // ไม่มี 'ทั้งหมด'
+  const all = Array.from(set);
+  const known = CATEGORY_ORDER.filter(cat => set.has(cat));
+  const rest  = all.filter(cat => !CATEGORY_ORDER.includes(cat))
+                   .sort((a,b)=>a.localeCompare(b,'th'));
+  categories = [...known, ...rest];
 }
 
 /* ---------- Render ---------- */
