@@ -8,32 +8,33 @@
   <link rel="stylesheet" href="style.css" />
   <link rel="icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=">
 
-  <!-- ไม่ใช้ Cloudflare: ปล่อยว่างไว้ (ถ้าจะใช้พร็อกซี Vercel ให้ตั้งเป็น https://your-app.vercel.app) -->
   <script>window.PROXY_BASE = '';</script>
-
-  <!-- Hls.js สำหรับเบราว์เซอร์ที่ไม่มี HLS native -->
   <script src="https://cdn.jsdelivr.net/npm/hls.js@1.5.8/dist/hls.min.js" defer></script>
   <script src="script.js" defer></script>
 </head>
 <body>
   <header class="h-wrap">
-    <div class="left">
+    <div class="pad"></div>
+
+    <!-- กลางหัวเว็บ -->
+    <div class="center-head">
       <div id="clock" aria-live="polite">--:--:--</div>
       <div id="now-playing" class="muted">กำลังเล่น: -</div>
     </div>
+
     <div class="right">
       <button id="refresh-btn" title="รีเฟรชช่อง/ล้างแคช" aria-label="รีเฟรชช่อง">⟲</button>
-      <div id="viewer-count-display" style="display:none">ออนไลน์: <span class="n">0</span></div>
     </div>
   </header>
 
   <main class="app">
-    <nav id="tabs" class="tabs" aria-label="หมวดหมู่ช่อง"></nav>
-
     <section class="player-wrap" aria-label="ตัวเล่นวิดีโอ">
       <video id="player" playsinline controls muted></video>
       <div id="player-status" class="player-status" hidden></div>
     </section>
+
+    <!-- ย้ายหมวดหมู่มาไว้ใต้ VDO และกึ่งกลาง -->
+    <nav id="tabs" class="tabs" aria-label="หมวดหมู่ช่อง"></nav>
 
     <section id="channel-list" class="channel-buttons" aria-label="รายการช่อง"></section>
   </main>
