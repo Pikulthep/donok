@@ -1,0 +1,1005 @@
+ {
+  "hls_Maxsport1": {
+    "name": "Monomax1",
+    "category": "กีฬา",
+    "url": "https://www.livedoomovies.com:4432/Monomax_Live_1HD/chunklist.m3u8",
+    "logo": "https://img5.pic.in.th/file/secure-sv1/502755108_1028038562796793_2906813054295735204_n-removebg-preview.png"
+  },
+    "hls_Maxsport2": {
+    "name": "Monomax2",
+    "category": "กีฬา",
+    "url": "https://www.livedoomovies.com:4432/Monomax_Live_2HD/chunklist.m3u8",
+    "logo": "https://img5.pic.in.th/file/secure-sv1/502755108_1028038562796793_2906813054295735204_n-removebg-preview.png"
+  },
+    "hls_Maxsport3": {
+    "name": "Monomax3",
+    "category": "กีฬา",
+    "url": "https://www.livedoomovies.com:4432/Monomax_Live_3HD/chunklist.m3u8",
+    "logo": "https://img5.pic.in.th/file/secure-sv1/502755108_1028038562796793_2906813054295735204_n-removebg-preview.png"
+  },      
+  "hls_SIAM-1": {
+    "name": "SIAM-1 LIVE🔴",
+    "category": "กีฬา",
+    "url": "https://dolive.thaim3u.com/doodii-live/siam-1/playlist.m3u8",
+    "logo": "https://img5.pic.in.th/file/secure-sv1/JdcUZJ0aLWimhsL3c8gNqsWpuD1yhbDsiam1.png"
+  },  
+  "hls_SIAM-2": {
+    "name": "SIAM-2 LIVE🔴",
+    "category": "กีฬา",
+    "url": "https://dolive.thaim3u.com/doodii-live/siam-2/playlist.m3u8",
+    "logo": "https://img2.pic.in.th/pic/cr3PJK6LjqFrAWWyphZSuvv5BjnYyKJsiam2.png"  
+  },  
+  "hls_SIAM-3": {
+    "name": "SIAM-3 LIVE🔴",
+    "category": "กีฬา",
+    "url": "https://dolive.thaim3u.com/doodii-live/siam-3/playlist.m3u8",
+    "logo": "https://img2.pic.in.th/pic/u09TcaaBHclPY21DkjnQUs15KnEVvJpsiam3.png" 
+  },  
+  "hls_SIAM-4": {
+    "name": "SIAM-4 LIVE🔴",
+    "category": "กีฬา",
+    "url": "https://dolive.thaim3u.com/doodii-live/siam-4/playlist.m3u8",
+    "logo": "https://img5.pic.in.th/file/secure-sv1/KuYqPsrL6rIxvBK6cOxT56K5kj4uAV8siam4.png"
+  },  
+  "hls_SIAM-5": {
+    "name": "SIAM-5 LIVE🔴",
+    "category": "กีฬา",
+    "url": "https://dolive.thaim3u.com/doodii-live/siam-5/playlist.m3u8",
+    "logo": "https://img2.pic.in.th/pic/DfF41JK9gkvbOlfl6ZAbXDqq6hUmGT2siam5.png"
+  },  
+  "hls_SIAM-6": {
+    "name": "SIAM-6 LIVE🔴",
+    "category": "กีฬา",
+    "url": "https://dolive.thaim3u.com/doodii-live/siam-6/playlist.m3u8",
+    "logo": "https://img5.pic.in.th/file/secure-sv1/siam6.png"
+  },  
+  "hls_SIAM-7": {
+    "name": "SIAM-7 LIVE🔴",
+    "category": "กีฬา",
+    "url": "https://dolive.thaim3u.com/doodii-live/siam-7/playlist.m3u8",
+    "logo": "https://img2.pic.in.th/pic/siam7.png"
+  },  
+  "hls_SIAM-8": {
+    "name": "SIAM-8 LIVE🔴",
+    "category": "กีฬา",
+    "url": "https://dolive.thaim3u.com/doodii-live/siam-8/playlist.m3u8",
+    "logo": "https://img5.pic.in.th/file/secure-sv1/siam8.png"
+  },  
+  "hls_AIS1": {
+    "name": "AIS-1 LIVE🔴",
+    "category": "กีฬา",
+    "url": "https://dolive.thaim3u.com/doodii-live/football-play-1/playlist.m3u8",
+    "logo": "https://img2.pic.in.th/pic/RziUDnIsuVooOkZ7IdtFPb4ro94yY4iais1-1.png"
+  },  
+  "hls_AIS2": {
+    "name": "AIS-2 LIVE🔴",
+    "category": "กีฬา",
+    "url": "https://dolive.thaim3u.com/doodii-live/football-play-2/playlist.m3u8",
+    "logo": "https://img5.pic.in.th/file/secure-sv1/4uJiK3DhZb82mr6lq8Cl4dv3oKiiZCKais2.png"
+  },  
+  "hls_AIS3": {
+    "name": "AIS-3 LIVE🔴",
+    "category": "กีฬา",
+    "url": "https://dolive.thaim3u.com/doodii-live/football-play-3/playlist.m3u8",
+    "logo": "https://img5.pic.in.th/file/secure-sv1/vvN9KtCxQiePrrD3JZ1w4zau0TtwKgyais3.png"
+  },  
+  "hls_AIS4": {
+    "name": "AIS-4 LIVE🔴",
+    "category": "กีฬา",
+    "url": "https://dolive.thaim3u.com/doodii-live/football-play-4/playlist.m3u8",
+    "logo": "https://img2.pic.in.th/pic/pBivjaUbfo4dNnCbcyFpXPE1fL9YIV0ais4.png"
+  },  
+  "hls_truehd1": {
+    "name": "ทรูสปอร์ตHD1",
+    "category": "กีฬา",
+    "url": "https://dolive.thaim3u.com/doodii-live/siamsport-4/playlist.m3u8",
+    "logo": "https://img5.pic.in.th/file/secure-sv1/true1.webp"
+  },  
+  "hls_truehd12": {
+    "name": "ทรูสปอร์ตHD1",
+    "category": "กีฬา",
+    "url": "https://keela2.com/stream/4/index.m3u8?token=mvFWafOIir5JDlQN",
+    "logo": "https://img5.pic.in.th/file/secure-sv1/true1.webp",
+    "badge": "สำรอง"
+  },
+  "hls_truehd21": {
+    "name": "ทรูสปอร์ตHD2",
+    "category": "กีฬา",
+    "url": "https://keela2.com/stream/17/index.m3u8?token=mvFWafOIir5JDlQN",
+    "logo": "https://img2.pic.in.th/pic/true2.webp" 
+  },
+  "hls_truehd22": {
+    "name": "ทรูสปอร์ตHD2",
+    "category": "กีฬา",
+    "url": "https://dolive.thaim3u.com/doodii-live/siamsport-5/playlist.m3u8",
+    "logo": "https://img2.pic.in.th/pic/true2.webp",
+    "badge": "สำรอง"
+  },
+  "hls_true3": {
+    "name": "ทรูสปอร์ต3",
+    "category": "กีฬา",
+    "url": "https://keela2.com/stream/18/index.m3u8?token=mvFWafOIir5JDlQN",
+    "logo": "https://img2.pic.in.th/pic/true3.webp"
+  },
+  "hls_truehd32": {
+    "name": "ทรูสปอร์ตHD3",
+    "category": "กีฬา",
+    "url": "https://dolive.thaim3u.com/doodii-live/siamsport-6/playlist.m3u8",
+    "logo": "https://img2.pic.in.th/pic/true3.webp",
+    "badge": "สำรอง"
+  },
+  "hls_truehd4": {
+    "name": "ทรูสปอร์ตHD4",
+    "category": "กีฬา",
+    "url": "http://mooseven.ddns.net:9090/memfs/1c3ad503-2c97-4157-8047-e1538bdc5f36.m3u8",
+    "logo": "https://img2.pic.in.th/pic/true4.webp"  
+  },
+  "hls_truehd42": {
+    "name": "ทรูสปอร์ตHD4",
+    "category": "กีฬา",
+    "url": "https://dolive.thaim3u.com/doodii-live/siamsport-7/playlist.m3u8",
+    "logo": "https://img2.pic.in.th/pic/true4.webp",
+    "badge": "สำรอง"
+  },
+  "hls_truehd5": {
+    "name": "ทรูสปอร์ตHD5",
+    "category": "กีฬา",
+    "url": "https://dolive.thaim3u.com/doodii-live/siamsport-8/playlist.m3u8",
+    "logo": "https://cms.dmpcdn.com/livetv/2024/01/16/cf4a2b50-b44d-11ee-aa7d-afe908f95743_webp_original.webp"
+  },
+  "hls_truehd52": {
+    "name": "ทรูสปอร์ตHD5",
+    "category": "กีฬา",
+    "url": "https://keela2.com/stream/20/index.m3u8?token=mvFWafOIir5JDlQN",
+    "logo": "https://cms.dmpcdn.com/livetv/2024/01/16/cf4a2b50-b44d-11ee-aa7d-afe908f95743_webp_original.webp",  
+    "badge": "สำรอง"
+  },
+  "hls_truehd71": {
+    "name": "ทรูสปอร์ตHD7",
+    "category": "กีฬา",
+    "url": "https://dolive.thaim3u.com/doodii-live/siamsport-9/playlist.m3u8",
+    "logo": "https://cms.dmpcdn.com/livetv/2024/01/16/cff0f2a0-b44d-11ee-9687-e7ccd66e1ea3_webp_original.webp"
+  },
+  "hls_truehd72": {
+    "name": "ทรูสปอร์ตHD7",
+    "category": "กีฬา",
+    "url": "https://keela2.com/stream/21/index.m3u8?token=mvFWafOIir5JDlQN",
+    "logo": "https://cms.dmpcdn.com/livetv/2024/01/16/cff0f2a0-b44d-11ee-9687-e7ccd66e1ea3_webp_original.webp",
+    "badge": "สำรอง"  
+    },
+  "hls_TennisHD": {
+    "name": "TennisHD",
+    "category": "กีฬา",
+    "url": "https://www.livedoomovies.com:4432/02_TennisHD_720p/chunklist.m3u8",
+    "logo": "https://cms.dmpcdn.com/livetv/2023/04/28/f65ea900-e595-11ed-86b8-bb40638e3c49_webp_original.webp"
+  },
+  "hls_bg1": {
+    "name": "beINSPORTS1",
+    "category": "กีฬา",
+    "url": "https://dolive.thaim3u.com/doodii-live/siamsport-1/playlist.m3u8",
+    "logo": "https://cms.dmpcdn.com/livetv/2023/07/24/5f3c5240-29cc-11ee-b2f4-e9de482d866e_webp_original.webp"
+    },
+  "hls_bg12": {
+    "name": "beINSPORTS1",
+    "category": "กีฬา",
+    "url": "https://keela2.com/stream/8/index.m3u8?token=mvFWafOIir5JDlQN",
+    "logo": "https://img2.pic.in.th/pic/bg1.webp",
+    "badge": "สำรอง"
+  },
+  "hls_bg2": {
+    "name": "beINSPORTS2",
+    "category": "กีฬา",
+    "url": "https://keela2.com/stream/9/index.m3u8?token=mvFWafOIir5JDlQN",
+    "logo": "https://img5.pic.in.th/file/secure-sv1/bg2d277716feb3f04d2.png"
+    },
+  "hls_bg22": {
+    "name": "beINSPORTS2",
+    "category": "กีฬา",
+    "url": "https://keela2.com/stream/2/index.m3u8?token=mvFWafOIir5JDlQN",
+    "logo": "https://img5.pic.in.th/file/secure-sv1/bg2d277716feb3f04d2.png",
+    "badge": "สำรอง"  
+  },
+  "hls_bg3": {
+    "name": "beINSPORTS3",
+    "category": "กีฬา",
+    "url": "https://dolive.thaim3u.com/doodii-live/siamsport-3/playlist.m3u8",
+    "logo": "https://img2.pic.in.th/pic/bg37f188872f67815d9.webp"
+  },
+  "hls_bg31": {
+    "name": "beINSPORTS3",
+    "category": "กีฬา",
+    "url": "https://keela2.com/stream/10/index.m3u8?token=mvFWafOIir5JDlQN",
+    "logo": "https://img2.pic.in.th/pic/bg37f188872f67815d9.webp",
+    "badge": "สำรอง"
+  },
+  "hls_sptv1": {
+    "name": "SportTV1",
+    "category": "กีฬา",
+    "url": "https://keela2.com/stream/31/index.m3u8?token=mvFWafOIir5JDlQN",
+    "logo": "https://img5.pic.in.th/file/secure-sv1/1663979709.png"
+  },
+  "hls_sptv2": {
+    "name": "SportTV2",
+    "category": "กีฬา",
+    "url": "https://keela2.com/stream/30/index.m3u8?token=mvFWafOIir5JDlQN",
+    "logo": "https://img5.pic.in.th/file/secure-sv1/1663979801.png"
+  },
+  "hls_espn1": {
+    "name": "ESPN1",
+    "category": "กีฬา",
+    "url": "https://keela2.com/stream/33/index.m3u8?token=mvFWafOIir5JDlQN",
+    "logo": "https://img5.pic.in.th/file/secure-sv1/1664501652.png"
+  },
+  "hls_espn2": {
+    "name": "ESPN2",
+    "category": "กีฬา",
+    "url": "https://keela2.com/stream/34/index.m3u8?token=mvFWafOIir5JDlQN",
+    "logo": "https://img5.pic.in.th/file/secure-sv1/1664501662.png"
+  },
+  "hls_espn3": {
+    "name": "ESPN3",
+    "category": "กีฬา",
+    "url": "https://keela2.com/stream/35/index.m3u8?token=mvFWafOIir5JDlQN",
+    "logo": "https://img2.pic.in.th/pic/1664501676.png"
+  },
+  "hls_spotv+": {
+    "name": "SPOTV+",
+    "category": "กีฬา",
+    "url": "https://keela2.com/stream/87/index.m3u8?token=mvFWafOIir5JDlQN",
+    "logo": "https://img5.pic.in.th/file/secure-sv1/1736239662.png"
+  },
+  "hls_spotv1": {
+    "name": "SPOTV1",
+    "category": "กีฬา",
+    "url": "https://keela2.com/stream/36/index.m3u8?token=mvFWafOIir5JDlQN",
+    "logo": "https://img2.pic.in.th/pic/1664529562.png"
+  },
+  "hls_spotv2": {
+    "name": "SPOTV2",
+    "category": "กีฬา",
+    "url": "https://keela2.com/stream/37/index.m3u8?token=mvFWafOIir5JDlQN",
+    "logo": "https://img5.pic.in.th/file/secure-sv1/1664529575.png"
+  },
+  "hls_spotv3": {
+    "name": "SPOTV3",
+    "category": "กีฬา",
+    "url": "https://keela2.com/stream/86/index.m3u8?token=mvFWafOIir5JDlQN",
+    "logo": "https://img2.pic.in.th/pic/1663980327.png"
+  },
+  "hls_spotv4": {
+    "name": "SPOTV4",
+    "category": "กีฬา",
+    "url": "https://keela2.com/stream/82/index.m3u8?token=mvFWafOIir5JDlQN",
+    "logo": "https://img2.pic.in.th/pic/1664041351.png"
+  },
+  "hls_spotv5": {
+    "name": "SPOTV5",
+    "category": "กีฬา",
+    "url": "https://keela2.com/stream/90/index.m3u8?token=mvFWafOIir5JDlQN",
+    "logo": "https://img5.pic.in.th/file/secure-sv1/1664125991.png"
+  },
+  "hls_ssc1": {
+    "name": "SSC1HD",
+    "category": "กีฬา",
+    "url": "https://keela2.com/stream/39/index.m3u8?token=mvFWafOIir5JDlQN",
+    "logo": "https://img5.pic.in.th/file/secure-sv1/1691933533.png"
+  },
+  "hls_SSCEXTRA1": {
+    "name": "SSCEXTRA1",
+    "category": "กีฬา",
+    "url": "https://keela2.com/stream/38/index.m3u8?token=mvFWafOIir5JDlQN",
+    "logo": "https://img5.pic.in.th/file/secure-sv1/1691948780.png"
+  },
+  "hls_SSCEXTRA2": {
+    "name": "SSCEXTRA2",
+    "category": "กีฬา",
+    "url": "https://keela2.com/stream/89/index.m3u8?token=mvFWafOIir5JDlQN",
+    "logo": "https://img2.pic.in.th/pic/1692334268.png"
+  },
+  "hls_WWE1": {
+    "name": "WWE",
+    "category": "กีฬา",
+    "url": "https://github.com/BONDiptv/m3u8/raw/refs/heads/main/WWE.m3u8",
+    "logo": "https://img2.pic.in.th/pic/wwe-logo-png.png"
+  },
+  "hls_WWE2": {
+    "name": "WWE",
+    "category": "กีฬา",
+    "url": "https://jmp2.uk/sam-US700005ID.m3u8",
+    "logo": "https://img2.pic.in.th/pic/wwe-logo-png.png"
+  },
+  "RealMadridTV": {
+    "name": "RealMadridTV",
+    "category": "กีฬา",
+    "url": "https://rmtv.akamaized.net/hls/live/2043154/rmtv-en-web/bitrate_3.m3u8",
+    "logo": "https://img5.pic.in.th/file/secure-sv1/592-s-removebg-preview.png"
+  },
+  "hls_mutv": {
+    "name": "MUTV",
+    "category": "กีฬา",
+    "url": "https://dolive.thaim3u.com/doodii-live/mutv/playlist.m3u8",
+    "logo": "https://img2.pic.in.th/pic/1665106261.png"
+  },
+  "hls_DiemaSport": {
+    "name": "DiemaSport",
+    "category": "กีฬา",
+    "url": "https://keela2.com/stream/77/index.m3u8?token=mvFWafOIir5JDlQN",
+    "logo": "https://img2.pic.in.th/pic/1664315169.png"
+  },
+  "hls_NBA1": {
+    "name": "NBA",
+    "category": "กีฬา",
+    "url": "https://dolive.thaim3u.com/doodii-live/true-nba/playlist.m3u8",
+    "logo": "https://img2.pic.in.th/pic/s2BUaO31zy05hVTHANoFfrvUvkVcHdktrue-nba.png"
+  },
+  "hls_NBA2": {
+    "name": "NBA",
+    "category": "กีฬา",
+    "url": "https://keela2.com/stream/78/index.m3u8?token=mvFWafOIir5JDlQN",
+    "logo": "https://img2.pic.in.th/pic/s2BUaO31zy05hVTHANoFfrvUvkVcHdktrue-nba.png",
+    "badge": "สำรอง"
+  },
+  "hls_PrimaSport1": {
+    "name": "PrimaSport1",
+    "category": "กีฬา",
+    "url": "https://keela2.com/stream/79/index.m3u8?token=mvFWafOIir5JDlQN",
+    "logo": "https://img5.pic.in.th/file/secure-sv1/1694689157.png"
+  },
+  "hls_PrimaSport3": {
+    "name": "PrimaSport3",
+    "category": "กีฬา",
+    "url": "https://keela2.com/stream/114/index.m3u8?token=mvFWafOIir5JDlQN",
+    "logo": "https://img5.pic.in.th/file/secure-sv1/1695604346.png"
+  },
+  "hls_TyCSports": {
+    "name": "TyCSports",
+    "category": "กีฬา",
+    "url": "https://keela2.com/stream/80/index.m3u8?token=mvFWafOIir5JDlQN",
+    "logo": "https://img2.pic.in.th/pic/1699121407.png"
+  },
+  "hls_AstroArenaBola": {
+    "name": "AstroArenaBola",
+    "category": "กีฬา",
+    "url": "https://keela2.com/stream/97/index.m3u8?token=mvFWafOIir5JDlQN",
+    "logo": "https://img2.pic.in.th/pic/1700012376.png"
+  },
+  "hls_AstroArenaBola2": {
+    "name": "AstroArenaBola2",
+    "category": "กีฬา",
+    "url": "https://keela2.com/stream/98/index.m3u8?token=mvFWafOIir5JDlQN",
+    "logo": "https://img2.pic.in.th/pic/1698351468.png"
+  },
+  "hls_AstroArena2": {
+    "name": "Astro Arena 2",
+    "category": "กีฬา",
+    "url": "https://keela2.com/stream/105/index.m3u8?token=mvFWafOIir5JDlQN",
+    "logo": "https://img5.pic.in.th/file/secure-sv1/1719768111.png"
+  },
+  "hls_tntsports1": {
+    "name": "tntsports1",
+    "category": "กีฬา",
+    "url": "https://keela2.com/stream/100/index.m3u8?token=mvFWafOIir5JDlQN",
+    "logo": "https://img2.pic.in.th/pic/d90c87a7-968b-47b4-bf66-98686bcd043b.jpg"
+  },
+  "hls_tntsports4": {
+    "name": "tntsports4",
+    "category": "กีฬา",
+    "url": "https://keela2.com/stream/101/index.m3u8?token=mvFWafOIir5JDlQN",
+    "logo": "https://img5.pic.in.th/file/secure-sv1/174fef29-55ec-48ee-af18-bc4a3011287a.png"
+  },
+  "hls_trt1": {
+    "name": "TRTSpor",
+    "category": "กีฬา",
+    "url": "https://keela2.com/stream/103/index.m3u8?token=mvFWafOIir5JDlQN",
+    "logo": "https://img2.pic.in.th/pic/trt.webp"  
+  },
+  "hls_ArenaSport3": {
+    "name": "ArenaSport3",
+    "category": "กีฬา",
+    "url": "https://keela2.com/stream/106/index.m3u8?token=mvFWafOIir5JDlQN",
+    "logo": "https://img2.pic.in.th/pic/-2025-08-01-184333.jpg"  
+  },
+  "hls_SK4HD": {
+    "name": "SK4HD",
+    "category": "กีฬา",
+    "url": "https://keela2.com/stream/110/index.m3u8?token=mvFWafOIir5JDlQN",
+    "logo": "https://img2.pic.in.th/pic/sportklub4slovenia175642f67a88d922.png"
+  },
+  "hls_BeinHD1": {
+    "name": "BeinHD1",
+    "category": "กีฬา",
+    "url": "https://live-la4.aws-stream.com:9317/v3/VKjomWoWENWFMTbmesCh-A/1754984630/0d5ee905a6522f7d7f5b7d44963b77f9/Yi65QKoDHYVHQ3PDWVhcBQ/1755006210/live/vx-origin/hd-bein1_720/chunks.m3u8",
+    "logo": "https://img5.pic.in.th/file/secure-sv1/hd-bein1-1.png"
+  },
+  "hls_BeinHD2": {
+    "name": "BeinHD2",
+    "category": "กีฬา",
+    "url": "https://live-la4.aws-stream.com:9318/v3/3RdEHbvucH7-OP_-7KdDHA/1754984631/0d5ee905a6522f7d7f5b7d44963b77f9/CUI1Wh9LIlSM5wGCfPd3Kw/1755006211/live/vx-origin/hd-bein2_720/chunks.m3u8",
+    "logo": "https://img5.pic.in.th/file/secure-sv1/hd-bein2.png"  
+  },
+  "hls_BeinHD3": {
+    "name": "BeinHD3",
+    "category": "กีฬา",
+    "url": "https://live-la5.aws-stream.com:9318/v3/OYhSiUVliYdo03q5lfKuUg/1754984634/0d5ee905a6522f7d7f5b7d44963b77f9/rjSlUc3YLc-bz2FBPD3qBA/1755006214/live/vx-origin/hd-bein3_720/chunks.m3u8",
+    "logo": "https://img2.pic.in.th/pic/hd-bein3.png"   
+  },
+  "hls_BeinHD4": {
+    "name": "BeinHD4",
+    "category": "กีฬา",
+    "url": "https://live-la2.aws-stream.com:9318/v3/axX83dfuFVuoEkWyaY-teQ/1754984638/0d5ee905a6522f7d7f5b7d44963b77f9/DByjFKP0beGlbmfwR-Iqng/1755006218/live/vx-origin/hd-bein4_720/chunks.m3u8",
+    "logo": "https://img2.pic.in.th/pic/hd-bein4.png"
+  },
+  "hls_BeinHD5": {
+    "name": "BeinHD5",
+    "category": "กีฬา",
+    "url": "https://live-la1.aws-stream.com:9318/v3/q9dUMri6nBq87beLIDHW6A/1754984640/0d5ee905a6522f7d7f5b7d44963b77f9/r_G_ktWaWcdJe3a-OyfwDA/1755006220/live/vx-origin/hd-bein5_720/chunks.m3u8",
+    "logo": "https://img2.pic.in.th/pic/hd-bein5.png"
+  },
+  "hls_BeinHD6": {
+    "name": "BeinHD6",
+    "category": "กีฬา",
+    "url": "https://live-la1.aws-stream.com:9318/v3/WWgLIJNC6zpKSaud3ucq4A/1754984641/0d5ee905a6522f7d7f5b7d44963b77f9/5nfrT4AP6BLa4gs6_IMi0w/1755006221/live/vx-origin/hd-bein6_720/chunks.m3u8",
+    "logo": "https://img2.pic.in.th/pic/hd-bein6.png"
+  },
+  "hls_BeinHD7": {
+    "name": "BeinHD7",
+    "category": "กีฬา",
+    "url": "https://live-la1.aws-stream.com:9318/v3/avrmI8ImBSNKz2IjyIP65A/1754984643/0d5ee905a6522f7d7f5b7d44963b77f9/UWTS2H4GrBTDNsR5UyQvlg/1755006223/live/vx-origin/hd-bein7_720/chunks.m3u8",
+    "logo": "https://img2.pic.in.th/pic/hd-bein7.png"
+  },
+  "hls_BeinHD8": {
+    "name": "BeinHD8",
+    "category": "กีฬา",
+    "url": "https://live-la4.aws-stream.com:9317/v3/Gv53Gi2KXpNJJAxvoBKSzA/1754984644/0d5ee905a6522f7d7f5b7d44963b77f9/LJmqBsxfxG5OJOTpbnSNnA/1755006224/live/vx-origin/hd-bein8_720/chunks.m3u8",
+    "logo": "https://img5.pic.in.th/file/secure-sv1/hd-bein8.png"
+  },
+  "hls_BeinHD9": {
+    "name": "BeinHD9",
+    "category": "กีฬา",
+    "url": "https://live-la2.aws-stream.com:9318/v3/27UH8u8L2RZ1SWkzJoC-Hw/1754987109/0d5ee905a6522f7d7f5b7d44963b77f9/7Wn7BsIVzcjqfMd2RZjE9w/1755008689/live/vx-origin/hd-bein9_720/chunks.m3u8",
+    "logo": "https://img5.pic.in.th/file/secure-sv1/hd-bein9.png"
+  },      
+  "hls_dltv1": {
+    "name": "DLTV1",
+    "logo": "https://img5.pic.in.th/file/secure-sv1/136_y_tPkVabFhc7iUGQdmlEDC5IxvJZj4326M.png",
+    "url": "https://cdn-live.dltv.ac.th/dltv01.m3u8",
+    "category": "การศึกษา"
+  },
+  "hls_dltv2": {
+    "name": "DLTV2",
+    "logo": "https://img5.pic.in.th/file/secure-sv1/137_y_yQOMjhFVupi8I1oal5TScnbkfAYtJC2v0fa789c0196c8a3b.png",
+    "url": "https://cdn-live.dltv.ac.th/dltv02.m3u8",
+    "category": "การศึกษา"
+  },
+  "hls_dltv3": {
+    "name": "DLTV3",
+    "logo": "https://img5.pic.in.th/file/secure-sv1/138_y_NrPWRcyIBzbd5kJ3n8MqHDOmoVpA19fS.png",
+    "url": "https://cdn-live.dltv.ac.th/dltv03.m3u8",
+    "category": "การศึกษา"
+  },
+  "hls_dltv4": {
+    "name": "DLTV4",
+    "logo": "https://img2.pic.in.th/pic/139_y_gx6RdEWuPqjBnAwoCI2mrltX5vJU4bDO.png",
+    "url": "https://cdn-live.dltv.ac.th/dltv04.m3u8",
+    "category": "การศึกษา"
+  },
+  "hls_dltv5": {
+    "name": "DLTV5",
+    "logo": "https://img2.pic.in.th/pic/140_y_0NYqGlHdDfQeZFoSUcMWsx1rtOyTXb78.png",
+    "url": "https://cdn-live.dltv.ac.th/dltv05.m3u8",
+    "category": "การศึกษา"
+  },
+  "hls_dltv6": {
+    "name": "DLTV6",
+    "logo": "https://img2.pic.in.th/pic/141_y_gIp8YiEP6MQsdeb9hjKcBFmUHVw1kNxy.png",
+    "url": "https://cdn-live.dltv.ac.th/dltv06.m3u8",
+    "category": "การศึกษา"
+  },
+  "hls_dltv7": {
+    "name": "DLTV7",
+    "logo": "https://img2.pic.in.th/pic/142_y_U53zK2mOiFQ9xsCMS7AJrvTtoEf6dpIc.png",
+    "url": "https://cdn-live.dltv.ac.th/dltv07.m3u8",
+    "category": "การศึกษา"
+  },
+  "hls_dltv8": {
+    "name": "DLTV8",
+    "logo": "https://img5.pic.in.th/file/secure-sv1/143_y_k4YNqBSgRW1OndxQuU6Pac0CMJVKIf57.png",
+    "url": "https://cdn-live.dltv.ac.th/dltv08.m3u8",
+    "category": "การศึกษา"
+  },
+  "hls_dltv9": {
+    "name": "DLTV9",
+    "logo": "https://img2.pic.in.th/pic/144_y_9yo8mDwnI5OLgCHKvfsZ42BMXTzEbrSe.png",
+    "url": "https://cdn-live.dltv.ac.th/dltv09.m3u8",
+    "category": "การศึกษา"
+  },
+  "hls_dltv10": {
+    "name": "DLTV10",
+    "logo": "https://img5.pic.in.th/file/secure-sv1/145_y_9Fkli2DoLIP0EX56AHW74MhquQKfng1a.png",
+    "url": "https://cdn-live.dltv.ac.th/dltv10.m3u8",
+    "category": "การศึกษา"
+  },
+  "hls_dltv11": {
+    "name": "DLTV11",
+    "logo": "https://img2.pic.in.th/pic/146_y_5LVm0hDdr2N19IOlU3MAtqscKSk6xgZe.png",
+    "url": "https://cdn-live.dltv.ac.th/dltv11.m3u8",
+    "category": "การศึกษา"
+  },
+  "hls_dltv12": {
+    "name": "DLTV12",
+    "logo": "https://img5.pic.in.th/file/secure-sv1/147_y_Uel5LZmKGoutv2PJiFIx60jayQbpnzqT.png",
+    "url": "https://cdn-live.dltv.ac.th/dltv12.m3u8",
+    "category": "การศึกษา"
+  },
+  "hls_dltv13": {
+    "name": "DLTV13",
+    "logo": "https://img5.pic.in.th/file/secure-sv1/148_y_23K7iaWFMTnyxjfH5NIhUpCgZc8SB4s9.png",
+    "url": "https://cdn-live.dltv.ac.th/dltv13.m3u8",
+    "category": "การศึกษา"
+  },
+  "hls_dltv14": {
+    "name": "DLTV14",
+    "logo": "https://img5.pic.in.th/file/secure-sv1/149_y_EzhGev4MFkQUOR08CdZisfP5Lnw9Jx6A.png",
+    "url": "https://cdn-live.dltv.ac.th/dltv14.m3u8",
+    "category": "การศึกษา"
+  },
+  "hls_dltv15": {
+    "name": "DLTV15",
+    "logo": "https://img5.pic.in.th/file/secure-sv1/150_y_eUWs21cyV38ARS0OZmtgILodzKiJqfaD.png",
+    "url": "https://cdn-live.dltv.ac.th/dltv15.m3u8",
+    "category": "การศึกษา"
+  },
+  "hls_ipFWMov": {
+    "name": "FWMov",
+    "category": "IPTV",
+    "url": "https://freelive2.inwstream.com:1936/freelive-edge/fwmov_fw-iptv.stream/playlist.m3u8",
+    "logo": "https://img2.pic.in.th/pic/20240429213309FWMOV__2_-removebg-preview.png"
+  },
+  "hls_ipFWSov": {
+    "name": "FWSov",
+    "category": "IPTV",
+    "url": "https://freelive2.inwstream.com:1936/freelive-edge/fwsov_fw-iptv.stream/playlist.m3u8",
+    "logo": "https://img5.pic.in.th/file/secure-sv1/20240429213326FWSOV-removebg-preview.png"
+  },
+  "hls_ipFWDoc": {
+    "name": "FWDoc",
+    "category": "IPTV",
+    "url": "https://freelive2.inwstream.com:1936/freelive-edge/fwdoc_fw-iptv.stream/chunks.m3u8",
+    "logo": "https://img2.pic.in.th/pic/20240617204638FWDoc-removebg-preview.png"
+  },
+  "hls_ipFWToon": {
+    "name": "FWToon",
+    "category": "IPTV",
+    "url": "https://freelive2.inwstream.com:1936/freelive-edge/fwtoon_fw-iptv.stream/chunks.m3u8",
+    "logo": "https://i.postimg.cc/8PxLS4hJ/IMG-2552.png"
+  },
+  "hls_ipChiangraiChannel": {
+    "name": "ChiangraiChannel",
+    "category": "IPTV",
+    "url": "https://live.thaitvstream.com/play/chiangrai/index.m3u8",
+    "logo": "https://i.postimg.cc/GtRYFgq8/IMG-2429.png"
+  },
+  "hls_ipCoolChannel": {
+    "name": "CoolChannel",
+    "category": "IPTV",
+    "url": "https://live-iptv.cool-channel.com/cool/live-720P.m3u8",
+    "logo": "https://i.postimg.cc/63sPMnRJ/IMG-1854.png"
+  },
+  "hls_ipChannel8": {
+    "name": "Channel8",
+    "category": "IPTV",
+    "url": "https://freelive.inwstream.com:1936/freelive-edge/dtv27_ch8/chunks.m3u8",
+    "logo": "https://i.postimg.cc/RFVxDzJm/IMG-1839.png"  
+  },
+  "hls_ipChannel82": {
+    "name": "Channel8",
+    "category": "IPTV",
+    "url": "https://cdn-th-vip.livestreaming.in.th/ch8/ch8/chunklist_w1708048131.m3u8",
+    "logo": "https://i.postimg.cc/RFVxDzJm/IMG-1839.png",
+    "badge": "สำรอง"
+  },
+  "hls_ipNBT11North": {
+    "name": "NBT11 ภาคเหนือ",
+    "category": "IPTV",
+    "url": "https://cdn-edge-ott.prd.go.th/live_vlc/smil:bfe6-faf5-827f-6228-2aa1.smil/chunklist_w695610859_b2128000.m3u8",
+    "logo": "https://i.postimg.cc/nLfbZvzV/IMG-2399.png"
+  },
+  "hls_ipNBT11Isan": {
+    "name": "NBT11 ภาคอีสาน",
+    "category": "IPTV",
+    "url": "https://cdn-edge-ott.prd.go.th/live_vlc/smil:7721-732d-60a6-13c1-b16d.smil/chunklist_w579192591_b2128000.m3u8",
+    "logo": "https://i.postimg.cc/xTN4CcBX/IMG-2401.png"
+  },
+  "hls_ipNBT11Central": {
+    "name": "NBT11 ภาคกลาง",
+    "category": "IPTV",
+    "url": "https://cdn-edge-ott.prd.go.th/live_vlc/smil:01f1-8b4b-971e-aa35-d5fa.smil/playlist.m3u8",
+    "logo": "https://i.postimg.cc/fTY1CVC6/IMG-2403.png"
+  },
+  "hls_ipNBT11South": {
+    "name": "NBT11 ภาคใต้",
+    "category": "IPTV",
+    "url": "https://cdn-edge-ott.prd.go.th/live_vlc/smil:406a-211e-df39-045c-4048.smil/chunklist_w1186889088_b2128000.m3u8",
+    "logo": "https://i.postimg.cc/5t2GfnJV/IMG-2405.png"
+  },
+  "hls_ipALTV": {
+    "name": "ALTV",
+    "category": "IPTV",
+    "url": "https://thaipbs-ujxrch.cdn.byteark.com/live/playlist.m3u8",
+    "logo": "https://cms.dmpcdn.com/livetv/2020/07/14/72c22620-c5aa-11ea-a8d3-2b56c8ce453d_original.png"
+  },
+  "hls_ipThaiPBSHD": {
+    "name": "ThaiPBSHD",
+    "category": "IPTV",
+    "url": "https://freelive2.inwstream.com:1936/freelive-edge/dtv03_tpbshd/chunks.m3u8",
+    "logo": "https://cms.dmpcdn.com/livetv/2023/09/15/ab170410-5377-11ee-8e1b-194edbb69638_webp_original.webp"  
+  },
+  "hls_ipThaiPBS": {
+    "name": "ThaiPBS",
+    "category": "IPTV",
+    "url": "https://freelive2.inwstream.com:1936/freelive-edge/dtv03_tpbshd/playlist.m3u8",
+    "logo": "https://cms.dmpcdn.com/livetv/2023/09/15/ab170410-5377-11ee-8e1b-194edbb69638_webp_original.webp",
+    "badge": "สำรอง"  
+  },
+  "hls_ipTSport7": {
+    "name": "TSport7",
+    "category": "IPTV",
+    "url": "https://lb1-live-mv.v2h-cdn.com/hls/ffef/tsport/tsport.m3u8",
+    "logo": "https://cms.dmpcdn.com/livetv/2022/02/10/e00c0e00-8a3c-11ec-8f9e-831d2ccecc69_webp_original.webp"
+  },
+  "hls_ipTPTV": {
+    "name": "TPTV",
+    "category": "IPTV",
+    "url": "https://tv-live.tpchannel.org/live/tv_1080p.m3u8",
+    "logo": "https://cms.dmpcdn.com/livetv/2023/11/22/2a4de600-8919-11ee-8416-3dc6bea66698_webp_original.webp"
+  },
+  "hls_ipTNN16": {
+    "name": "TNN16",
+    "category": "IPTV",
+    "url": "https://dolive.thaim3u.com/doodii-live/tnn24_1080p/playlist.m3u8",
+    "logo": "https://cms.dmpcdn.com/livetv/2023/10/02/75023d90-60f1-11ee-935a-5d4eba985103_webp_original.webp"
+  },
+  "hls_ipJKN18": {
+    "name": "JKN18",
+    "category": "IPTV",
+    "url": "https://lb1-live-mv.v2h-cdn.com/hls/ffda/jkn18/jkn18.m3u8",
+    "logo": "https://cms.dmpcdn.com/livetv/2021/06/15/3e4e0540-cdb4-11eb-9a22-7958179a38a7_original.png"
+  },
+  "hls_ipJKN182": {
+    "name": "JKN18",
+    "category": "IPTV",
+    "url": "https://keela2.com/stream/115/index.m3u8?token=mvFWafOIir5JDlQN",
+    "logo": "https://cms.dmpcdn.com/livetv/2021/06/15/3e4e0540-cdb4-11eb-9a22-7958179a38a7_original.png",
+    "badge": "สำรอง"
+  },
+  "hls_ipNationTV": {
+    "name": "NationTV",
+    "category": "IPTV",
+    "url": "https://nationtv-1jdcjo.cdn.byteark.com/fleetstream/nationtvlive/1080p/index.m3u8",
+    "logo": "https://cms.dmpcdn.com/livetv/2023/09/09/9c6f59c0-4ebe-11ee-99a7-832609069236_webp_original.webp"
+  },
+  "hls_ipWorkpoint": {
+    "name": "Workpoint",
+    "category": "IPTV",
+    "url": "https://lb1-live-mv.v2h-cdn.com/hls/ffcb/workpoint/workpoint.m3u8",
+    "logo": "https://img5.pic.in.th/file/secure-sv1/wt1.webp"
+  },
+  "hls_ipWorkpoint2": {
+    "name": "Workpoint",
+    "category": "IPTV",
+    "url": "https://keela2.com/stream/117/index.m3u8?token=mvFWafOIir5JDlQN",
+    "logo": "https://img5.pic.in.th/file/secure-sv1/wt1.webp",  
+    "badge": "สำรอง"
+    },
+  "hls_ipTrue24": {
+    "name": "True24",
+    "category": "IPTV",
+    "url": "https://freelive.inwstream.com:1936/freelive-edge/true4u/chunks.m3u8",
+    "logo": "https://img5.pic.in.th/file/secure-sv1/true4u.webp"
+  },
+  "hls_ipTrue242": {
+    "name": "True24",
+    "category": "IPTV",
+    "url": "https://lb1-live-mv.v2h-cdn.com/hls/ffca/true24/true24.m3u8",
+    "logo": "https://img5.pic.in.th/file/secure-sv1/true4u.webp",
+    "badge": "สำรอง"    
+  },
+  "hls_ipGmm25": {
+    "name": "Gmm25",
+    "category": "IPTV",
+    "url": "https://lb1-live-mv.v2h-cdn.com/hls/ffbf/gmm25/gmm25.m3u8",
+    "logo": "https://cms.dmpcdn.com/livetv/2020/11/19/ed873d50-2a22-11eb-bed4-0972e345f90c_original.png"
+  },
+  "hls_ipCH8": {
+    "name": "CH8",
+    "category": "IPTV",
+    "url": "https://freelive.inwstream.com:1936/freelive-edge/dtv27_ch8/chunks.m3u8",
+    "logo": "https://img5.pic.in.th/file/secure-sv1/ch8.webp"  
+  },
+  "hls_ipCH82": {
+    "name": "CH8",
+    "category": "IPTV",
+    "url": "https://lb1-live-mv.v2h-cdn.com/hls/ffbe/ch8/ch8.m3u8",
+    "logo": "https://img5.pic.in.th/file/secure-sv1/ch8.webp",
+    "badge": "สำรอง"
+  },
+  "hls_ipMono291": {
+    "name": "Mono29TH",
+    "category": "IPTV",
+    "url": "https://monomax-uiripn.cdn.byteark.com/plain/th/720p/index.m3u8",
+    "logo": "https://cms.dmpcdn.com/livetv/2019/01/10/35a35017-8473-4953-8474-5c58d805b74a.png"
+  },
+  "hls_ipMono292": {
+    "name": "Mono29TH",
+    "category": "IPTV",
+    "url": "https://monomax-uiripn.cdn.byteark.com/plain/th/playlist.m3u8",
+    "logo": "https://cms.dmpcdn.com/livetv/2019/01/10/35a35017-8473-4953-8474-5c58d805b74a.png",
+    "badge": "สำรอง"
+  },
+  "hls_ipMono293": {
+    "name": "Mono29 หนังSoundtrack",
+    "category": "IPTV",
+    "url": "https://monomax-uiripn.cdn.byteark.com/plain/st/720p/index.m3u8",
+    "logo": "https://i.postimg.cc/26dJcxGv/IMG-2741.png"
+  },
+  "hls_ipMono294": {
+    "name": "Mono29 หนังSoundtrack",
+    "category": "IPTV",
+    "url": "https://monomax-uiripn.cdn.byteark.com/plain/st/playlist.m3u8",
+    "logo": "https://i.postimg.cc/26dJcxGv/IMG-2741.png",
+    "badge": "สำรอง"
+  },
+  "hls_ipMCOTHD": {
+    "name": "MCOTHD",
+    "category": "IPTV",
+    "url": "https://freelive.inwstream.com:1936/freelive-edge/dtv30_mcothd/chunks.m3u8",
+    "logo": "https://img5.pic.in.th/file/secure-sv1/mcot30.webp"  
+  },
+  "hls_ipMCOTHD2": {
+    "name": "MCOTHD",
+    "category": "IPTV",
+    "url": "https://mcothd-streaming-edge-cdn.mcot.net/tencentmcot/smil:tencentmcot.smil/chunklist_w2118341630_b3000000.m3u8",
+    "logo": "https://img5.pic.in.th/file/secure-sv1/mcot30.webp",
+    "badge": "สำรอง" 
+  },
+  "hls_ipONE31FHD": {
+    "name": "ONE31FHD",
+    "category": "IPTV",
+    "url": "https://bcovlive-a.akamaihd.net/b6603a14ea59440a95e9235e14bc9332/ap-southeast-1/6415628290001/9c3d7fc7d10840a69e48b5939ae886e0/playlist_ssaiM.m3u8",
+    "logo": "https://cms.dmpcdn.com/livetv/2019/01/16/396384be-35dc-4d11-bf04-06c9546ec7bc.png"
+  },
+  "hls_ipONE31": {
+    "name": "ONE31",
+    "category": "IPTV",
+    "url": "https://lb1-live-mv.v2h-cdn.com/hls/ffba/one/one.m3u8",
+    "logo": "https://cms.dmpcdn.com/livetv/2019/01/16/396384be-35dc-4d11-bf04-06c9546ec7bc.png",
+    "badge": "สำรอง"
+  },
+  "hls_ipThairath": {
+    "name": "Thairath",
+    "category": "IPTV",
+    "url": "https://freelive.inwstream.com:1936/freelive-edge/dtv32_thairahttvhd/chunks.m3u8",
+    "logo": "https://img2.pic.in.th/pic/th1.jpg"  
+  },
+  "hls_ipThairath2": {
+    "name": "Thairath",
+    "category": "IPTV",
+    "url": "https://lb1-live-mv.v2h-cdn.com/hls/ffaf/thairath/thairath.m3u8",
+    "logo": "https://img2.pic.in.th/pic/th1.jpg",
+    "badge": "สำรอง"  
+  },
+  "hls_ip5HD1": {
+    "name": "5HD",
+    "category": "IPTV",
+    "url": "https://639bc5877c5fe.streamlock.net/tv5hdlive/tv5hdlive/playlist.m3u8",
+    "logo": "https://cms.dmpcdn.com/livetv/2023/07/18/7e060a10-2515-11ee-864f-a52221dad038_webp_original.webp"
+  },
+  "hls_ip5HD2": {
+    "name": "5HD",
+    "category": "IPTV",
+    "url": "https://lb1-live-mv.v2h-cdn.com/hls/fffb/5hd/5hd.m3u8",
+    "logo": "https://cms.dmpcdn.com/livetv/2023/07/18/7e060a10-2515-11ee-864f-a52221dad038_webp_original.webp",
+    "badge": "สำรอง"
+  },
+  "hls_ip3HD": {
+    "name": "3HD",
+    "category": "IPTV",
+    "url": "https://lb1-live-mv.v2h-cdn.com/hls/ffae/3hd/3hd.m3u8",
+    "logo": "https://cms.dmpcdn.com/livetv/2023/07/24/5ff3e270-29cc-11ee-b2f4-e9de482d866e_webp_original.webp"
+  },
+  "hls_ip3HD2": {
+    "name": "3HD",
+    "category": "IPTV",
+    "url": "https://rbmn-live.akamaized.net/hls/live/590964/BoRB-AT/master_6660.m3u8",
+    "logo": "https://cms.dmpcdn.com/livetv/2023/07/24/5ff3e270-29cc-11ee-b2f4-e9de482d866e_webp_original.webp",  
+    "badge": "TEST"
+  },
+  "hls_ipAmarin": {
+    "name": "Amarin",
+    "category": "IPTV",
+    "url": "https://freelive2.inwstream.com:1936/freelive-edge/dtv33_ch3hd/chunks.m3u8",
+    "logo": "https://cms.dmpcdn.com/livetv/2024/07/23/5e86fbc0-48c0-11ef-9fca-d9696b8af2b7_webp_original.webp"  
+  },
+  "hls_ipAmarin2": {
+    "name": "Amarin",
+    "category": "IPTV",
+    "url": "https://lb1-live-mv.v2h-cdn.com/hls/ffad/amarin/amarin.m3u8",
+    "logo": "https://cms.dmpcdn.com/livetv/2024/07/23/5e86fbc0-48c0-11ef-9fca-d9696b8af2b7_webp_original.webp",
+    "badge": "สำรอง"
+  },
+  "hls_ipCH7": {
+    "name": "CH7",
+    "category": "IPTV",
+    "url": "https://lb1-live-mv.v2h-cdn.com/hls/ffac/7hd/7hd.m3u8",
+    "logo": "https://cms.dmpcdn.com/livetv/2023/07/19/212d15e0-25e7-11ee-bfc1-85e95548413c_webp_original.webp"
+  },
+  "hls_ipCH7HD": {
+    "name": "CH7HD",
+    "category": "IPTV",
+    "url": "https://keela2.com/stream/120/index.m3u8?token=mvFWafOIir5JDlQN",
+    "logo": "https://cms.dmpcdn.com/livetv/2023/07/19/212d15e0-25e7-11ee-bfc1-85e95548413c_webp_original.webp",
+    "badge": "สำรอง"
+  },
+  "hls_ipPPTV": {
+    "name": "PPTV",
+    "category": "IPTV",
+    "url": "https://lb1-live-mv.v2h-cdn.com/hls/ffab/pptv/pptv.m3u8",
+    "logo": "https://cms.dmpcdn.com/livetv/2024/06/26/48fb8a90-338b-11ef-a958-ed31043c43a3_webp_original.webp"
+  },
+  "hls_ipVIPA": {
+    "name": "VIPA",
+    "category": "IPTV",
+    "url": "https://thaipbs-ophctt.cdn.byteark.com/0db95d655989436dbd571dcb8f70d98f/ap-southeast-1/6075037809001/profile_1/chunklist.m3u8",
+    "logo": "https://img.utdstc.com/icon/965/641/965641a9c5b372eac248b48aa0319bc04fad8c5ba556f885a0a79f3f61a5fb9b:200"
+  },
+  "hls_ipWhiteChannel": {
+    "name": "WhiteChannel",
+    "category": "IPTV",
+    "url": "https://symc-cdn.violin.co.th/tndedge/whitechannel/playlist.m3u8",
+    "logo": "https://cms.dmpcdn.com/livetv/2022/02/17/3943ca00-8fd6-11ec-b076-dffedf0eab22_webp_original.webp"
+  },
+  "hls_ipTTD1": {
+    "name": "TTD1",
+    "category": "IPTV",
+    "url": "https://psiiptv-b.sky-cdn.com/ttd01-playlist/tracks-v1a1/mono.m3u8",
+    "logo": "https://img5.pic.in.th/file/secure-sv1/95_y_LE97J2C1QVIHgyeotdSD4vsMz3cnkK8b.png"
+  },
+  "hls_ipTTD2": {
+    "name": "TTD2",
+    "category": "IPTV",
+    "url": "https://psiiptv-b.sky-cdn.com/ttd02-playlist/tracks-v1a1/mono.m3u8",
+    "logo": "https://img2.pic.in.th/pic/97_y_sJ7ia3MDOZmf4NBYdqK1WHz68kAUPhLF.png"
+  },
+  "hls_ipTTD3": {
+    "name": "TTD3",
+    "category": "IPTV",
+    "url": "https://psiiptv-b.sky-cdn.com/ttd03-playlist/tracks-v1a1/mono.m3u8",
+    "logo": "https://img5.pic.in.th/file/secure-sv1/98_y_mjRlVn5dsWz1AI03SuKHTv96MOqetFXL.png"
+  },
+  "hls_ipTTD4": {
+    "name": "TTD4",
+    "category": "IPTV",
+    "url": "https://psiiptv-b.sky-cdn.com/ttd04-Playlist/tracks-v1a1/mono.m3u8",
+    "logo": "https://img5.pic.in.th/file/secure-sv1/99_y_QlSGIfvmqV2rMe71xbT6naE4XOwB83Zy8e887693dda259ee.png"
+  },
+  "hls_ipTTD5": {
+    "name": "TTD5",
+    "category": "IPTV",
+    "url": "https://psiiptv-b.sky-cdn.com/ttd05-playlist/tracks-v1a1/mono.m3u8",
+    "logo": "https://img2.pic.in.th/pic/100_y_Z7VxML6XkH0o9wrsIUzajC4Bfe8PEbqW.png"
+  },
+  "hls_ipTTD6": {
+    "name": "TTD6",
+    "category": "IPTV",
+    "url": "https://psiiptv-b.sky-cdn.com/ttd06-playlist/tracks-v1a1/mono.m3u8",
+    "logo": "https://img5.pic.in.th/file/secure-sv1/101_y_Nujyn9h71JtsVYo5KkAfGL3OeMZF4T6i.png"
+  },
+  "hls_ipTTD7": {
+    "name": "TTD7",
+    "category": "IPTV",
+    "url": "https://psiiptv-b.sky-cdn.com/ttd07-playlist/tracks-v1a1/mono.m3u8",
+    "logo": "https://img5.pic.in.th/file/secure-sv1/102_y_H9WxnVREmrDL72MFQ86Ycwkzhg3yGTBU.png"
+  },
+  "hls_ipTTD8": {
+    "name": "TTD8",
+    "category": "IPTV",
+    "url": "https://psiiptv-b.sky-cdn.com/ttd08-playlist/tracks-v1a1/mono.m3u8",
+    "logo": "https://img2.pic.in.th/pic/103_y_jm5ykb0fX7vZCTGAtcHdSz8LarVKiFJE.png"
+  },
+  "hls_ipTTD9": {
+    "name": "TTD9",
+    "category": "IPTV",
+    "url": "https://psiiptv-b.sky-cdn.com/ttd09-playlist/tracks-v1a1/mono.m3u8",
+    "logo": "https://img2.pic.in.th/pic/104_y_Jf2RiAdxLZINXazDvEMGr5Hg3YFCuQ7k.png"
+  },
+  "hls_ipTTD10": {
+    "name": "TTD10",
+    "category": "IPTV",
+    "url": "https://psiiptv-b.sky-cdn.com/ttd10-playlist/tracks-v1a1/mono.m3u8",
+    "logo": "https://media-mvtv.imgix.net/channel/95_y_LE97J2C1QVIHgyeotdSD4vsMz3cnkK8b.png"
+  },
+  "hls_ipTTD11": {
+    "name": "TTD11",
+    "category": "IPTV",
+    "url": "https://psiiptv-b.sky-cdn.com/ttd11-playlist/tracks-v1a1/mono.m3u8",
+    "logo": "https://media-mvtv.imgix.net/channel/95_y_LE97J2C1QVIHgyeotdSD4vsMz3cnkK8b.png"
+  },
+  "hls_ipTTD12": {
+    "name": "TTD12",
+    "category": "IPTV",
+    "url": "https://psiiptv-b.sky-cdn.com/ttd12-playlist/tracks-v1a1/mono.m3u8",
+    "logo": "https://media-mvtv.imgix.net/channel/95_y_LE97J2C1QVIHgyeotdSD4vsMz3cnkK8b.png"
+  },
+  "hls_doomovic1": {
+    "name": "Smurfs (2025) สเมิร์ฟ",
+    "category": "หนัง",
+    "url": "https://master.streamhls.com/hlsr2/344daafccf7c29fc7134386f145c785e/master.m3u8",
+    "logo": "https://www.037hdd-movie.com/wp-content/uploads/2025/07/Smurfs-2025.jpg"
+  },
+  "hls_doomovic2": {
+    "name": " AnHonestLife(2025)ชีวิตซื่อ",
+    "category": "หนัง",
+    "url": "https://master.streamhls.com/hlsr2/46cabdb7b096b7bfc651293e8a682fbd/master.m3u8",
+    "logo": "https://www.037hdd-movie.com/wp-content/uploads/2025/08/An-Honest-Life-2025.jpg"
+  },
+  "hls_doomovic3": {
+    "name": " พระแท้ คนเก๊(2025)",
+    "category": "หนัง",
+    "url": "https://master.streamhls.com/hlsr2/7341740f96136f2ea13b204d01dc203d/master.m3u8",
+    "logo": "https://www.037hdd-movie.com/wp-content/uploads/2025/08/The-Stone-2025.jpg"
+  },
+  "hls_doomovic4": {
+    "name": "28ปีให้หลังเชื้อเขมือบคน(2025)",
+    "category": "หนัง",
+    "url": "https://master.streamhls.com/hlsr2/77738fadc2abe5da7ca3aee73a6a4571/master.m3u8",
+    "logo": "https://www.037hdd-movie.com/wp-content/uploads/2025/06/28-Years-Later-2025.jpg"
+  },
+  "hls_doomovic5": {
+    "name": "Locked(2025)ล็อกล่อมาตาย",
+    "category": "หนัง",
+    "url": "https://master.streamhls.com/hlsr2/dfe198227eca08fef985fd061f37e7fd/master.m3u8",
+    "logo": "https://www.037hdd-movie.com/wp-content/uploads/2025/07/Locked-2025.jpg"
+  },
+  "hls_doomovic6": {
+    "name": "สัประยุทธ์ทะลุฟ้า4 : หนีตาย (2025)",
+    "category": "หนัง",
+    "url": "https://master.streamhls.com/hlsr2/a323f1e2139b086a32d1c1a99f8527cd/master.m3u8",
+    "logo": "https://img5.pic.in.th/file/secure-sv1/Battle-Through-the-Heavens-4-2025.jpg"  
+  },
+  "hls_doomovic7": {
+    "name": "ปีศาจแห่งไท่จี๋(2022)",
+    "category": "หนัง",
+    "url": "https://master.streamhls.com/hlsr2/1a08b53ada639ae3c00b4c4aa3e98d44/master.m3u8",
+    "logo": "https://img5.pic.in.th/file/secure-sv1/Taichis-Beast-Mound-2022.jpg"  
+  },
+  "hls_doomovic8": {
+    "name": "หน่วยกล้าตาย วิกฤตการณ์แห่งระเบิด(2021)",
+    "category": "หนัง",
+    "url": "https://master.streamhls.com/hlsr2/513fe8ff3346a609b1f296e794b0602f/master.m3u8",
+    "logo": "https://img2.pic.in.th/pic/Defense-Bomb-crisis-2021.jpg"  
+  },
+  "hls_doomovic9": {
+    "name": "TheLostLegend(2023)",
+    "category": "หนัง",
+    "url": "https://master.streamhls.com/hlsr2/9ae89eabf404863591e3e61be64ec5a1/master.m3u8",
+    "logo": "https://img2.pic.in.th/pic/The-Lost-Legend-2023.jpg"   
+  },
+  "hls_doomovic10": {
+    "name": "เดอะ โปรซิคิวเตอร์ เกิดมาเก็บเจ้าพ่อ(2024)",
+    "category": "หนัง",
+    "url": "https://master.streamhls.com/hlsr2/9c09ed969eade5056e44d5a754f77857/master.m3u8",
+    "logo": "https://img2.pic.in.th/pic/The-Prosecutor-2024.jpg"  
+    },
+  "hls_doomovic11": {
+    "name": "BeastinRiver(2023)อสูรแม่น้ำ",
+    "category": "หนัง",
+    "url": "https://master.streamhls.com/hlsr2/bee63997a649f4bffb4ef97f7177191b/master.m3u8",
+    "logo": "https://img5.pic.in.th/file/secure-sv1/Beast.jpg"
+    },
+  "hls_doomovic12": {
+    "name": "Superman(2025)",
+    "category": "หนัง",
+    "url": "https://master.streamhls.com/hlsr2/ce9cb1e9cb902b698e2330c7510bb0de/master.m3u8",
+    "logo": "https://img2.pic.in.th/pic/Superman-2025.jpg"
+  }
+}
