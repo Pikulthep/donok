@@ -56,12 +56,27 @@ body{margin:0;background:var(--bg);color:var(--text);font:16px/1.5 system-ui,Seg
 .tab:active{transform:scale(.98)}
 .tab.active{background:#1a1d22}
 
-/* Player */
+/* Player (กึ่งกลางจริง) */
 .player-wrap{
-  position:relative; background:#000;
-  border:1px solid var(--border); border-radius:12px; overflow:hidden;
+  position:relative;
+  display:flex;                /* center child */
+  justify-content:center;      /* ↔ */
+  align-items:center;          /* ↕ */
+  background:#000;
+  border:1px solid var(--border);
+  border-radius:12px;
+  overflow:hidden;
+  padding:0;                   /* no side padding */
 }
-#player{width:100%; height:48vh; max-height:62vh; background:#000}
+#player{
+  display:block;
+  margin-inline:auto;          /* center video itself */
+  width:100%;
+  max-width:var(--maxw);
+  aspect-ratio:16/9;           /* คุมสัดส่วน */
+  height:auto;                 /* ให้คุมด้วย aspect-ratio */
+  background:#000;
+}
 .player-status{
   position:absolute; left:12px; bottom:12px;
   background:#000a; color:#fff; padding:6px 10px; border-radius:8px;
@@ -98,10 +113,10 @@ body{margin:0;background:var(--bg);color:var(--text);font:16px/1.5 system-ui,Seg
 }
 .channel-name{margin-top:6px;text-align:center;font-size:13px;color:#dbe0e6;line-height:1.3}
 
-/* Skeleton while loading (optional class) */
+/* Skeleton */
 .skeleton{animation:skeleton 1.1s linear infinite alternate}
 @keyframes skeleton{0%{opacity:.55}100%{opacity:1}}
 
 @media (max-width:640px){
-  #player{height:40vh}
+  #player{aspect-ratio:16/9; width:100%}
 }
