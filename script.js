@@ -330,7 +330,6 @@ async function playByIndex(idx, jumpToPlayer){
 /* ---------- Refresh / Init ---------- */
 async function doRefresh(){
   showToastLeft('กำลังรีเฟรช...', 800);
-  showStatus('รีเฟรช/ล้างแคช...', false, 0);
   const activeTab = tabsEl.querySelector('.tab.active')?.dataset?.cat || categories[0] || null;
   await fetchChannels();
   buildCategories();
