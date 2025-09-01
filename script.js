@@ -1,7 +1,9 @@
 /* ========================= script.js (GitHub Pages mode) =========================
-   - อ่าน channels.json
+   - อ่าน channels.json (รองรับทั้ง object keyed และ array)
    - ไม่มีหมวด "ทั้งหมด" แล้ว (ใช้หมวดจริงเท่านั้น)
-   - กดช่องแล้ว "เด้งไปยังตัวเล่นวิดีโอเสมอ"
+   - คลิก "ช่อง" หรือเปลี่ยน "หมวด" → เลื่อนไปยังตัวเล่นวิดีโอเสมอ
+   - player-status โชว์/ซ่อนอัตโนมัติ (ข้อความทั่วไป 1.8s, error 4s; ระหว่างโหลดค้างไว้)
+   - ไม่ใช้ Cloudflare; ถ้าต้องการพร็อกซีให้ตั้ง window.PROXY_BASE เป็นโดเมน Vercel
 ================================================================================= */
 
 const CHANNELS_URL = 'channels.json';
@@ -23,17 +25,33 @@ let currentIdx  = -1;
 let hls = null;
 let lastRefreshTs = 0;
 
+let statusTimer = null;
+
 /* ---------- Utils ---------- */
 const sleep   = (ms)=> new Promise(r=>setTimeout(r, ms));
 const fmtTime = (d)=> d.toLocaleString('th-TH',{hour:'2-digit',minute:'2-digit',second:'2-digit',hour12:false,timeZone:TIMEZONE});
 function tickClock(){ if (clockEl) clockEl.textContent = fmtTime(new Date()); }
 setInterval(tickClock, 1000); tickClock();
 
-function showStatus(msg, isError=false){
+function showStatus(msg, isError=false, durationMs){
   if (!statusEl) return;
-  statusEl.textContent = msg || '';
-  statusEl.hidden = !msg;
+  if (statusTimer){ clearTimeout(statusTimer); statusTimer = null; }
+
+  if (!msg){
+    statusEl.hidden = true;
+    statusEl.textContent = '';
+    statusEl.classList.remove('error');
+    return;
+  }
+  statusEl.textContent = msg;
+  statusEl.hidden = false;
   statusEl.classList.toggle('error', !!isError);
+
+  // default: ข้อความทั่วไป 1800ms, error 4000ms (ถ้าส่ง durationMs=0 ⇒ ค้างไว้จนสั่งปิดเอง)
+  const ms = typeof durationMs === 'number' ? durationMs : (isError ? 4000 : 1800);
+  if (ms > 0){
+    statusTimer = setTimeout(() => { statusEl.hidden = true; }, ms);
+  }
 }
 
 function bust(url){
@@ -44,13 +62,14 @@ function bust(url){
 
 function wrapIfProxy(u){
   if (!PROXY_BASE) return u;
+  // โหมด Vercel: /api/p?u=<encoded-upstream>
   const v = new URL(PROXY_BASE);
   v.pathname = v.pathname.replace(/\/+$/,'') + '/api/p';
   v.searchParams.set('u', u);
   return v.toString();
 }
 
-// เลื่อนหน้าไปหากล่องวิดีโอ (รองรับ header แบบ sticky)
+// เลื่อนหน้าไปหากล่องวิดีโอ (รองรับ header sticky)
 function scrollToPlayer(){
   const playerWrap = document.querySelector('.player-wrap');
   if (!playerWrap) return;
@@ -112,8 +131,7 @@ function renderTabs(){
       tabsEl.querySelectorAll('.tab').forEach(x=>x.classList.remove('active'));
       b.classList.add('active');
       renderList(cat);
-      // เมื่อเปลี่ยนหมวด ให้เลื่อนขึ้นเล็กน้อยให้เห็น VDO ชัด (เผื่ออยู่ล่าง)
-      setTimeout(scrollToPlayer, 0);
+      setTimeout(scrollToPlayer, 0); // เลื่อนไปหาวิดีโอหลังเปลี่ยนหมวด
     });
     tabsEl.appendChild(b);
   });
@@ -127,11 +145,10 @@ function renderList(cat){
     el.addEventListener('click', () => {
       const id = el.dataset.id;
       const idx = channels.findIndex(x => x.id === id);
-      // true = มาจากการคลิก ให้เลื่อนไปหาวิดีโอเสมอ
-      playByIndex(idx, true);
+      playByIndex(idx, true); // true = คลิกช่อง → เลื่อนไปหาวิดีโอเสมอ
     });
   });
-  // auto play ช่องแรกของหมวดแรก (ไม่เลื่อนหน้าจอ)
+  // auto play ช่องแรกของหมวดแรก (ครั้งแรกไม่เลื่อน)
   if (filtered.length && currentIdx < 0) {
     const firstIdx = channels.findIndex(x => x.id === filtered[0].id);
     playByIndex(firstIdx, false);
@@ -171,7 +188,7 @@ function ensureHls(){
     });
     hls.attachMedia(videoEl);
     hls.on(Hls.Events.ERROR, (ev, data) => {
-      if (data?.fatal) showStatus(`เล่นไม่สำเร็จ (${data.type})`, true);
+      if (data?.fatal) showStatus(`เล่นไม่สำเร็จ (${data.type})`, true, 4000);
     });
   }
 }
@@ -192,7 +209,7 @@ async function playUrl(url){
 
 /**
  * @param {number} idx
- * @param {boolean} jumpToPlayer - ถ้า true จะเลื่อนไปหาวิดีโอเสมอ (ใช้ตอนคลิกช่อง)
+ * @param {boolean} jumpToPlayer - ถ้า true จะเลื่อนไปหาวิดีโอเสมอ (เวลาคลิกช่อง)
  */
 async function playByIndex(idx, jumpToPlayer){
   if (idx < 0 || idx >= channels.length) return;
@@ -204,7 +221,7 @@ async function playByIndex(idx, jumpToPlayer){
   });
 
   updateNowPlaying(c);
-  showStatus(`กำลังโหลด: ${c.name} ...`);
+  showStatus(`กำลังโหลด: ${c.name} ...`, false, 0);  // ค้างไว้จนเล่นได้/ล้มเหลว
 
   const candidates = [c.url, ...c.backups.map(b => b.url || b.src).filter(Boolean)];
   let ok = false;
@@ -214,18 +231,14 @@ async function playByIndex(idx, jumpToPlayer){
       if (ok){ showStatus(''); break; }
     }catch{}
   }
-  if (!ok) showStatus('ไม่สามารถเล่นช่องนี้ได้', true);
+  if (!ok) showStatus('ไม่สามารถเล่นช่องนี้ได้', true, 4000);
 
-  // เด้งหน้าจอไปหาวิดีโอเสมอถ้ามาจากการคลิก
-  if (jumpToPlayer){
-    // ใช้ setTimeout เพื่อให้เบราว์เซอร์วาด DOM/Video ก่อน แล้วค่อยเลื่อน
-    setTimeout(scrollToPlayer, 0);
-  }
+  if (jumpToPlayer) setTimeout(scrollToPlayer, 0);
 }
 
 /* ---------- Refresh / Init ---------- */
 async function doRefresh(){
-  showStatus('รีเฟรช/ล้างแคช...');
+  showStatus('รีเฟรช/ล้างแคช...', false, 0);
   const activeTab = tabsEl.querySelector('.tab.active')?.dataset?.cat || categories[0] || null;
   await fetchChannels();
   buildCategories();
@@ -239,11 +252,11 @@ async function doRefresh(){
 refreshBtn?.addEventListener('click', async () => {
   if (Date.now() - lastRefreshTs < 700) return;
   lastRefreshTs = Date.now();
-  try{ await doRefresh(); }catch(e){ showStatus('รีเฟรชไม่สำเร็จ', true); }
+  try{ await doRefresh(); }catch(e){ showStatus('รีเฟรชไม่สำเร็จ', true, 4000); }
 });
 
 async function init(){
-  showStatus('กำลังโหลดรายการช่อง...');
+  showStatus('กำลังโหลดรายการช่อง...', false, 0);
   try{
     await fetchChannels();
     buildCategories();
@@ -252,7 +265,7 @@ async function init(){
     showStatus('');
   }catch(e){
     console.error(e);
-    showStatus('โหลดรายการช่องไม่สำเร็จ', true);
+    showStatus('โหลดรายการช่องไม่สำเร็จ', true, 4500);
   }
 
   // ยกเลิก mute อัตโนมัติหลังมี gesture
