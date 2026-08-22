@@ -1,42 +1,96 @@
 <!DOCTYPE html>
 <html lang="th">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Flow TV</title>
-
-  <link rel="stylesheet" href="style.css" />
-  <link rel="icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=">
-
-  <script>window.PROXY_BASE = '';</script>
-  <script src="https://cdn.jsdelivr.net/npm/hls.js@1.5.8/dist/hls.min.js" defer></script>
-  <script src="script.js" defer></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vercel IPTV Player (Proxy Mode)</title>
+    <!-- นำเข้าไลบรารี HLS.js สำหรับเล่นไฟล์ m3u8 -->
+    <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+    <style>
+        body { 
+            background-color: #111; 
+            color: #fff; 
+            font-family: sans-serif;
+            text-align: center; 
+            margin: 0; 
+            padding: 20px; 
+        }
+        .video-container {
+            max-width: 800px;
+            margin: 0 auto;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+            background: #000;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        video { 
+            width: 100%; 
+            height: auto; 
+            outline: none; 
+            display: block;
+        }
+        .status {
+            margin-top: 15px;
+            font-size: 0.9em;
+            color: #aaa;
+        }
+    </style>
 </head>
 <body>
-  <header class="h-wrap">
-    <div class="pad"></div>
 
-    <!-- กลางหัวเว็บ -->
-    <div class="center-head">
-      <div id="clock" aria-live="polite">--:--:--</div>
-      <div id="now-playing" class="muted">กำลังเล่น: -</div>
+    <h2>🎥 Live TV Player (Proxy Mode)</h2>
+    
+    <div class="video-container">
+        <video id="video" controls autoplay></video>
     </div>
+    
+    <div class="status" id="statusText">กำลังโหลดสตรีม...</div>
 
-    <div class="right">
-      <button id="refresh-btn" title="รีเฟรชช่อง/ล้างแคช" aria-label="รีเฟรชช่อง">⟲</button>
-    </div>
-  </header>
+    <script>
+        // 🎯 1. ใส่ลิงก์เป้าหมาย (HTTP) ของ MAC Portal ที่ต้องการเล่น 
+        // (สามารถใช้ลิงก์ raw ของ github หรือ ลิงก์ http ตรงๆ ได้เลย)
+        const targetUrl = 'http://macete.xyz:2095/play/live.php?mac=00:1A:79:AB:ED:5A&stream=115526&extension=m3u8';
+        
+        // 🛡️ 2. หุ้มด้วย Proxy ของเรา (เรียกไปที่ไฟล์ api/proxy.js บน Vercel)
+        const m3u8Url = `/api/proxy?url=${encodeURIComponent(targetUrl)}`;
 
-  <main class="app">
-    <section class="player-wrap" aria-label="ตัวเล่นวิดีโอ">
-      <video id="player" playsinline controls muted></video>
-      <div id="player-status" class="player-status" hidden></div>
-    </section>
+        const video = document.getElementById('video');
+        const statusText = document.getElementById('statusText');
 
-    <!-- ย้ายหมวดหมู่มาไว้ใต้ VDO และกึ่งกลาง -->
-    <nav id="tabs" class="tabs" aria-label="หมวดหมู่ช่อง"></nav>
+        // 3. ตรวจสอบและเล่นวิดีโอ
+        if (Hls.isSupported()) {
+            const hls = new Hls({
+                // ช่วยปรับแต่งให้รับสตรีมผ่าน Proxy ได้ไหลลื่นขึ้น
+                maxBufferSize: 30 * 1000 * 1000, 
+                maxBufferLength: 30,
+            });
+            
+            hls.loadSource(m3u8Url);
+            hls.attachMedia(video);
+            
+            hls.on(Hls.Events.MANIFEST_PARSED, function() {
+                statusText.innerText = "✅ เชื่อมต่อผ่าน Proxy สำเร็จ! กำลังเล่น...";
+                video.play().catch(e => console.log("Auto-play prevented:", e));
+            });
 
-    <section id="channel-list" class="channel-buttons" aria-label="รายการช่อง"></section>
-  </main>
+            hls.on(Hls.Events.ERROR, function (event, data) {
+                if (data.fatal) {
+                    statusText.innerText = "❌ เกิดข้อผิดพลาดในการดึงข้อมูลสตรีม";
+                    console.error("HLS.js Error:", data);
+                }
+            });
+        } 
+        // สำหรับ Safari (iOS/macOS) ที่รองรับ m3u8 ในตัวโดยไม่ต้องใช้ HLS.js
+        else if (video.canPlayType('application/vnd.apple.mpegurl')) {
+            video.src = m3u8Url;
+            video.addEventListener('loadedmetadata', function() {
+                statusText.innerText = "✅ เชื่อมต่อสำเร็จ! กำลังเล่น...";
+                video.play().catch(e => console.log("Auto-play prevented:", e));
+            });
+        } else {
+            statusText.innerText = "❌ เบราว์เซอร์ของคุณไม่รองรับการเล่นไฟล์สตรีมมิ่ง";
+        }
+    </script>
+
 </body>
 </html>
